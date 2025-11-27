@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: 'IM Sans QH', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 138, 101, 0.05) 0%, transparent 50%);
+  }
+  
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-coral text-white font-semibold py-4 px-8 rounded-2xl 
+           hover:shadow-glow transition-all duration-300 transform hover:scale-105;
+    box-shadow: 0 4px 14px rgba(255, 107, 107, 0.4);
+  }
+  
+  .btn-secondary {
+    @apply bg-brand-brown text-white font-semibold py-3 px-6 rounded-2xl 
+           border-2 border-brand-coral hover:bg-brand-coral transition-all duration-300;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card {
+    @apply bg-brand-brown/90 rounded-2xl p-6 backdrop-blur-sm
+           border border-brand-coral/10;
+    background: 
+      radial-gradient(circle at 2px 2px, rgba(255, 107, 107, 0.1) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(61, 37, 32, 0.95) 0%, rgba(45, 24, 16, 0.95) 100%);
+    background-size: 40px 40px, 100% 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  
+  .input-field {
+    @apply w-full bg-white text-gray-800 px-5 py-4 rounded-2xl 
+           focus:outline-none focus:ring-2 focus:ring-brand-coral;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-center mb-8;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8A65 50%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .pixel-text {
+    font-family: 'ISC Bold', 'Courier New', monospace;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+/* ISC 专用像素字体 */
+@font-face {
+  font-family: 'ISC Bold';
+  src: url('/fonts/ISC-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IM Sans QH 中文字体 */
+@font-face {
+  font-family: 'IM Sans QH';
+  src: url('/fonts/IMSansQH-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IM Sans QH';
+  src: url('/fonts/IMSansQH-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IM Sans QH';
+  src: url('/fonts/IMSansQH-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+.pixel-font {
+  font-family: 'ISC Bold', 'Courier New', monospace;
+  letter-spacing: 0.05em;
+}
+
+.chinese-font {
+  font-family: 'IM Sans QH', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF6B6B 0%, #FF8A65 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FF8A65 0%, #FFB74D 100%);
+}
