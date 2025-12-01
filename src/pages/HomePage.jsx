@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Sparkles, TrendingUp, Image, List, FileText } from 'lucide-react'
 import { useIsMobile } from '../hooks/useIsMobile'
-import videoMain from '../../ISCvideos/ISCvideos/ISCmain.mp4'
+const videoMain = '/isc-colorful-light-language/videos/ISCmain.mp4'
 
 const HomePage = () => {
   const isMobile = useIsMobile()

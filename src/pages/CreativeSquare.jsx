@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, TrendingUp, Share2, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import videoLists from '../../ISCvideos/ISCvideos/ISClists.mp4'
+const videoLists = '/isc-colorful-light-language/videos/ISClists.mp4'
 import ShareModal from '../components/ShareModal'
 import ImagePreviewModal from '../components/ImagePreviewModal'
 

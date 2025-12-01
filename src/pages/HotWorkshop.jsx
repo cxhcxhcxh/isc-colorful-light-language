@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Step1CollectTopics, Step2GenerateCopy, Step3GenerateLight, Step4GeneratePoster } from '../components/HotWorkshopSteps'
 import ShareModal from '../components/ShareModal'
 import LoadingAnimation from '../components/LoadingAnimation'
-import videoNews from '../../ISCvideos/ISCvideos/ISCnews.mp4'
+const videoNews = '/isc-colorful-light-language/videos/ISCnews.mp4'
 
 const HotWorkshop = () => {
   const [selectedTopic, setSelectedTopic] = useState(null)
