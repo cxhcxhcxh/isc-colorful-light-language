@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
+import { getAssetPath } from '../constants/paths'
 
-// 步骤1：AI 爬取实时热点榜单
 export const Step1CollectTopics = ({ 
   isLoadingTopics, 
   hasCollectedTopics, 
@@ -82,7 +84,7 @@ export const Step1CollectTopics = ({
                 <div className="pointer-events-none select-none flex items-center justify-center gap-2 md:gap-3 px-2">
                   <span className="text-[#fff1e7]/80 text-base md:text-xl lg:text-2xl text-center truncate" style={{ lineHeight: '1.2' }}>文案热点文案热点文案热点文案热点</span>
                   <img
-                    src="/assets/标签热点.png"
+                    src={getAssetPath('/assets/标签热点.png')}
                     alt="热点标签"
                     className="w-[40px] h-[20px] md:w-[50px] md:h-[25px] object-contain flex-shrink-0"
                   />

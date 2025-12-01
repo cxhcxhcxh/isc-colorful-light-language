@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
+import { getAssetPath } from '../constants/paths'
 
 // 步骤1：导入图片
 export const Step1ImportImage = ({ 
@@ -54,7 +57,7 @@ export const Step1ImportImage = ({
           {/* 右上角上传图标 */}
           <div className="absolute right-4 top-1/2 -translate-y-1/2">
             <img
-              src="/assets/上.png"
+              src={getAssetPath('/assets/上.png')}
               alt="上传"
               className="w-6 h-6 object-contain"
             />

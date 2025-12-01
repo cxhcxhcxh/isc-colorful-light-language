@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { getAssetPath } from '../constants/paths'
 
 const ShareModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null
@@ -23,7 +24,7 @@ const ShareModal = ({ isOpen, onClose }) => {
         <div className="rounded-3xl overflow-hidden relative">
           {/* 背景图片 */}
           <img 
-            src="/assets/Group 69@2x.png" 
+            src={getAssetPath('/assets/Group 69@2x.png')} 
             alt="分享海报"
             className="w-full h-auto"
           />
@@ -59,11 +60,7 @@ const ShareModal = ({ isOpen, onClose }) => {
             className="flex flex-col items-center gap-2"
           >
             <div className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
-              <img
-                src="/assets/微信.png"
-                alt="微信"
-                className="w-8 h-8 object-contain"
-              />
+              <img src={getAssetPath('/assets/微信@2x.png')} alt="WeChat" className="w-6 h-6" />
             </div>
             <span className="text-white/70 text-xs">微信</span>
           </button>
@@ -76,7 +73,7 @@ const ShareModal = ({ isOpen, onClose }) => {
           >
             <div className="w-14 h-14 rounded-full bg-red-500 flex items-center justify-center shadow-lg overflow-hidden">
               <img
-                src="/assets/Group 68.png"
+                src={getAssetPath('/assets/Group 68.png')}
                 alt="小红书"
                 className="w-full h-full object-cover"
               />
@@ -92,7 +89,7 @@ const ShareModal = ({ isOpen, onClose }) => {
           >
             <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center shadow-lg overflow-hidden">
               <img
-                src="/assets/复制链接.png"
+                src={getAssetPath('/assets/复制链接.png')}
                 alt="复制链接"
                 className="w-full h-full object-cover"
               />

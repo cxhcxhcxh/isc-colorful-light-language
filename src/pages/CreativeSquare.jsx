@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, TrendingUp, Share2, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { getAssetPath } from '../constants/paths'
 const videoLists = '/isc-colorful-light-language/videos/ISClists.mp4'
 import ShareModal from '../components/ShareModal'
 import ImagePreviewModal from '../components/ImagePreviewModal'
@@ -70,7 +71,7 @@ const CreativeSquare = () => {
               ISC LISTS 共创广场
             </h1>
             <img
-              src="/assets/幻彩星星.png"
+              src={getAssetPath('/assets/幻彩星星.png')}
               alt="装饰星星"
               className="w-6 h-6 md:w-8 md:h-8"
             />
@@ -336,7 +337,7 @@ const CreativeSquare = () => {
                   >
                     <span className="w-10 h-10 flex items-center justify-center">
                       <img
-                        src="/assets/微信.png"
+                        src={getAssetPath('/assets/微信.png')}
                         alt="微信"
                         className="w-10 h-10 rounded-full object-contain"
                       />
@@ -352,7 +353,7 @@ const CreativeSquare = () => {
                   >
                     <span className="w-10 h-10 flex items-center justify-center">
                       <img
-                        src="/assets/Group 68.png"
+                        src={getAssetPath('/assets/Group 68.png')}
                         alt="小红书"
                         className="w-10 h-10 rounded-full object-contain"
                       />
@@ -368,7 +369,7 @@ const CreativeSquare = () => {
                   >
                     <span className="w-10 h-10 flex items-center justify-center">
                       <img
-                        src="/assets/复制链接.png"
+                        src={getAssetPath('/assets/复制链接.png')}
                         alt="复制链接"
                         className="w-10 h-10 rounded-full object-contain"
                       />

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, Type, Sparkles, Share2, Download, Car } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { getAssetPath } from '../constants/paths'
 const videoWords = '/isc-colorful-light-language/videos/ISCwords.mp4'
 import { Step1InputText, Step2GenerateLight, Step3GeneratePoster } from '../components/PersonalSignSteps'
 import ShareModal from '../components/ShareModal'
@@ -162,7 +163,7 @@ const PersonalSignWorkshop = () => {
             </h1>
             <div className="hidden md:block absolute -top-4 -right-10 w-6 h-6 md:w-8 md:h-8 pointer-events-none select-none">
               <img
-                src="/assets/幻彩星星.png"
+                src={getAssetPath('/assets/幻彩星星.png')}
                 alt="装饰星星"
                 className="w-full h-full object-contain"
               />
@@ -175,7 +176,7 @@ const PersonalSignWorkshop = () => {
 
           <div className="mx-auto mb-3 md:mb-4 w-3 h-2 md:w-4 md:h-3 pointer-events-none select-none">
             <img
-              src="/assets/浅色三角形.png"
+              src={getAssetPath('/assets/浅色三角形.png')}
               alt="装饰三角形"
               className="w-full h-full object-contain"
             />

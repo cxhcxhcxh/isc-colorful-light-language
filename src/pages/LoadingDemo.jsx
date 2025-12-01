@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { ArrowLeft } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { getAssetPath } from '../constants/paths'
 import LoadingAnimation from '../components/LoadingAnimation'
 
 const LoadingDemo = () => {
@@ -53,9 +57,9 @@ const LoadingDemo = () => {
         {/* 标题 */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-4 flex items-center justify-center gap-3">
-            <img src="/assets/幻彩星星.png" alt="star" className="w-10 h-10 animate-pulse" />
+            <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-10 h-10 animate-pulse" />
             加载动画演示
-            <img src="/assets/幻彩星星.png" alt="star" className="w-10 h-10 animate-pulse" />
+            <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-10 h-10 animate-pulse" />
           </h1>
           <p className="text-gray-400 text-lg mb-4">
             Mirage → Quantum → Helix → Quantum → Grid

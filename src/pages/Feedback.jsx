@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { getAssetPath } from '../constants/paths'
 
 const Feedback = () => {
   const [selectedType, setSelectedType] = useState('功能建议')
@@ -61,9 +62,9 @@ const Feedback = () => {
                 letterSpacing: '0.5px'
               }}
             >
-              <img src="/assets/幻彩星星.png" alt="star" className="w-6 h-6 animate-pulse" />
+              <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-6 h-6 animate-pulse" />
               意见反馈*
-              <img src="/assets/幻彩星星.png" alt="star" className="w-6 h-6 animate-pulse" />
+              <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-6 h-6 animate-pulse" />
             </h1>
             <p className="text-sm text-white/60 text-center" style={{ lineHeight: '1.5' }}>
               Hi，给出你的小建议吧～

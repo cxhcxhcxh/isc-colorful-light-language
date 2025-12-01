@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { getAssetPath } from '../constants/paths'
 const videoPics = '/isc-colorful-light-language/videos/ISCpics.mp4'
 import { Step1ImportImage } from '../components/WordsClanSteps'
 import ShareModal from '../components/ShareModal'
@@ -117,7 +118,7 @@ const WordsClan = () => {
               ISC PICS 吃谷一族
             </h1>
             <img
-              src="/assets/幻彩星星.png"
+              src={getAssetPath('/assets/幻彩星星.png')}
               alt="装饰星星"
               className="w-8 h-8"
             />
@@ -184,12 +185,12 @@ const WordsClan = () => {
 
           <div className="flex items-center justify-between gap-2 mb-5">
             {[
-              { src: '/assets/上.png', alt: '上移' },
-              { src: '/assets/下.png', alt: '下移' },
-              { src: '/assets/左.png', alt: '左移' },
-              { src: '/assets/右.png', alt: '右移' },
-              { src: '/assets/放大.png', alt: '放大' },
-              { src: '/assets/缩小.png', alt: '缩小' },
+              { src: getAssetPath('/assets/上.png'), alt: '上移' },
+              { src: getAssetPath('/assets/下.png'), alt: '下移' },
+              { src: getAssetPath('/assets/左.png'), alt: '左移' },
+              { src: getAssetPath('/assets/右.png'), alt: '右移' },
+              { src: getAssetPath('/assets/放大.png'), alt: '放大' },
+              { src: getAssetPath('/assets/缩小.png'), alt: '缩小' },
             ].map((item, index) => (
               <button
                 key={index}

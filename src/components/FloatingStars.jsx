@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { getAssetPath } from '../constants/paths'
 
 const FloatingStars = () => {
   const stars = [
@@ -34,7 +35,7 @@ const FloatingStars = () => {
           }}
         >
           <img 
-            src="/assets/幻彩星星.png" 
+            src={getAssetPath('/assets/幻彩星星.png')} 
             alt="star" 
             className="w-full h-full opacity-50"
           />
