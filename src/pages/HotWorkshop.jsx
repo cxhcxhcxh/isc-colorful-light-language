@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Step1CollectTopics, Step2GenerateCopy, Step3GenerateLight, Step4GeneratePoster } from '../components/HotWorkshopSteps'
 import ShareModal from '../components/ShareModal'
 import LoadingAnimation from '../components/LoadingAnimation'
+import { getAssetPath } from '../constants/paths'
 const videoNews = '/isc-colorful-light-language/videos/ISCnews.mp4'
 
 const HotWorkshop = () => {
@@ -151,7 +152,7 @@ const HotWorkshop = () => {
               ISC NEWS 热点工坊
             </h1>
             <img
-              src="/assets/幻彩星星.png"
+              src={getAssetPath('/assets/幻彩星星.png')}
               alt="装饰星星"
               className="w-6 h-6 md:w-8 md:h-8"
             />

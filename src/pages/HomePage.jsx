@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Sparkles, TrendingUp, Image, List, FileText } from 'lucide-react'
 import { useIsMobile } from '../hooks/useIsMobile'
+import { getAssetPath } from '../constants/paths'
 const videoMain = '/isc-colorful-light-language/videos/ISCmain.mp4'
 
 const HomePage = () => {
@@ -13,40 +14,40 @@ const HomePage = () => {
 
   const features = [
     {
-      pcImage: '/assets/热点工坊.png',
-      mobileBg: '/assets/mobile/热点工坊背景.png',
-      mobileBgSelected: '/assets/mobile/热点工坊点击状态.png',
-      mobileIcon: '/assets/mobile/热点工坊图标@2x.png?v=3',
+      pcImage: getAssetPath('/assets/热点工坊.png'),
+      mobileBg: getAssetPath('/assets/mobile/热点工坊背景.png'),
+      mobileBgSelected: getAssetPath('/assets/mobile/热点工坊点击状态.png'),
+      mobileIcon: getAssetPath('/assets/mobile/热点工坊图标@2x.png?v=3'),
       title: '热点工坊',
       subtitle: 'ISC NEWS',
       description: '挖掘每日热点\n提供更多时髦新鲜感AI工作流趋势预测，时效性领先行业',
       link: '/hot-workshop',
     },
     {
-      pcImage: '/assets/个性灯牌.png',
-      mobileBg: '/assets/mobile/个性灯牌背景.png',
-      mobileBgSelected: '/assets/mobile/个性灯牌点击状态.png',
-      mobileIcon: '/assets/mobile/个性灯牌图标@2x.png?v=3',
+      pcImage: getAssetPath('/assets/个性灯牌.png'),
+      mobileBg: getAssetPath('/assets/mobile/个性灯牌背景.png'),
+      mobileBgSelected: getAssetPath('/assets/mobile/个性灯牌点击状态.png'),
+      mobileIcon: getAssetPath('/assets/mobile/个性灯牌图标@2x.png?v=3'),
       title: '个性灯牌',
       subtitle: 'ISC WORDS',
       description: '智己为自己代言\n随行的专属广告位',
       link: '/personal-sign',
     },
     {
-      pcImage: '/assets/吃谷一族.png',
-      mobileBg: '/assets/mobile/吃谷一族背景.png',
-      mobileBgSelected: '/assets/mobile/吃谷一族点击状态.png',
-      mobileIcon: '/assets/mobile/吃谷一族图标@2x.png?v=3',
+      pcImage: getAssetPath('/assets/吃谷一族.png'),
+      mobileBg: getAssetPath('/assets/mobile/吃谷一族背景.png'),
+      mobileBgSelected: getAssetPath('/assets/mobile/吃谷一族点击状态.png'),
+      mobileIcon: getAssetPath('/assets/mobile/吃谷一族图标@2x.png?v=3'),
       title: '吃谷一族',
       subtitle: 'ISC PICS',
       description: '让所有宣到舍不得人\n都能心情愉悦',
       link: '/words-clan',
     },
     {
-      pcImage: '/assets/共创广场.png',
-      mobileBg: '/assets/mobile/共创广场背景.png',
-      mobileBgSelected: '/assets/mobile/共创广场点击状态.png',
-      mobileIcon: '/assets/mobile/共创广场图标@2x.png?v=3',
+      pcImage: getAssetPath('/assets/共创广场.png'),
+      mobileBg: getAssetPath('/assets/mobile/共创广场背景.png'),
+      mobileBgSelected: getAssetPath('/assets/mobile/共创广场点击状态.png'),
+      mobileIcon: getAssetPath('/assets/mobile/共创广场图标@2x.png?v=3'),
       title: '共创广场',
       subtitle: 'ISC LISTS',
       description: '汇集年友创意\n共创出街提案',
@@ -56,23 +57,23 @@ const HomePage = () => {
 
   const topFeatures = [
     { 
-      pcImage: '/assets/内容生成.png', 
-      mobileImage: '/assets/mobile/内容实时生成背景.png',
-      mobileIcon: '/assets/mobile/内容实时生成@2x.png',
+      pcImage: getAssetPath('/assets/内容生成.png'), 
+      mobileImage: getAssetPath('/assets/mobile/内容实时生成背景.png'),
+      mobileIcon: getAssetPath('/assets/mobile/内容实时生成@2x.png'),
       text: '内容实时生成',
       subtitle: 'AI网页工作流'
     },
     { 
-      pcImage: '/assets/推送即时到车.png', 
-      mobileImage: '/assets/mobile/推送即时到车背景.png',
-      mobileIcon: '/assets/mobile/推送即时到车@2x.png',
+      pcImage: getAssetPath('/assets/推送即时到车.png'), 
+      mobileImage: getAssetPath('/assets/mobile/推送即时到车背景.png'),
+      mobileIcon: getAssetPath('/assets/mobile/推送即时到车@2x.png'),
       text: '推送即时到车',
       subtitle: 'AI RPA桌面工作流'
     },
     { 
-      pcImage: '/assets/低延时快响应.png', 
-      mobileImage: '/assets/mobile/低延时快响应背景.png',
-      mobileIcon: '/assets/mobile/低延迟快响应@2x.png',
+      pcImage: getAssetPath('/assets/低延时快响应.png'), 
+      mobileImage: getAssetPath('/assets/mobile/低延时快响应背景.png'),
+      mobileIcon: getAssetPath('/assets/mobile/低延迟快响应@2x.png'),
       text: '低延时快响应',
       subtitle: '好用是好玩的基础'
     },
@@ -86,7 +87,7 @@ const HomePage = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="/assets/image15.png" 
+              src={getAssetPath('/assets/image15.png')} 
               alt="Logo" 
               className="h-5 lg:h-7"
               style={{ width: 'auto' }}
@@ -172,7 +173,7 @@ const HomePage = () => {
                 <h1 className="text-xl font-bold gradient-text" style={{ lineHeight: '28px' }}>
                   幻彩智慧灯语 · 内容创作平台
                 </h1>
-                <img src="/assets/幻彩星星.png" alt="star" className="w-4 h-4" />
+                <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-4 h-4" />
               </div>
               <div className="flex items-center justify-center gap-2 mb-6">
                 <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-[#FF6B3D]"></div>
@@ -219,7 +220,7 @@ const HomePage = () => {
                 <h1 className="text-4xl font-bold gradient-text" style={{ lineHeight: '50px' }}>
                   幻彩智慧灯语 · 内容创作平台
                 </h1>
-                <img src="/assets/幻彩星星.png" alt="star" className="w-8 h-8 animate-pulse" />
+                <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-8 h-8 animate-pulse" />
               </div>
               
               <div className="flex items-center justify-center gap-3 mb-12">
@@ -343,7 +344,7 @@ const HomePage = () => {
               >
                 <span className="gradient-text flex items-center justify-center gap-3">
                   幻彩智慧灯语的多元创作通道
-                  <img src="/assets/幻彩星星.png" alt="star" className="w-8 h-8 animate-pulse" />
+                  <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-8 h-8 animate-pulse" />
                 </span>
               </motion.h2>
 
@@ -371,7 +372,7 @@ const HomePage = () => {
                         {features[0].subtitle}
                       </h3>
                       <p className="text-3xl font-bold mb-4 flex items-center gap-2 text-white drop-shadow-md" style={{ lineHeight: '45px' }}>
-                        <img src="/assets/像素小星星@2x.png" alt="star" className="w-5 h-5" />
+                        <img src={getAssetPath('/assets/像素小星星@2x.png')} alt="star" className="w-5 h-5" />
                         {features[0].title}
                       </p>
                       <p className="text-white/80 text-xl leading-7 drop-shadow-md max-w-lg whitespace-pre-line">
@@ -411,7 +412,7 @@ const HomePage = () => {
                             {feature.subtitle}
                           </h3>
                           <p className="text-2xl font-bold flex items-center justify-center gap-2 text-white drop-shadow-md" style={{ lineHeight: '34px' }}>
-                            <img src="/assets/像素小星星@2x.png" alt="star" className="w-5 h-5" />
+                            <img src={getAssetPath('/assets/像素小星星@2x.png')} alt="star" className="w-5 h-5" />
                             {feature.title}
                           </p>
                         </div>
@@ -437,7 +438,7 @@ const HomePage = () => {
       <footer className="py-16 px-4 border-t border-brand-coral/20 mt-20">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <img src="/assets/幻彩星星.png" alt="logo" className="w-6 h-6" />
+            <img src={getAssetPath('/assets/幻彩星星.png')} alt="logo" className="w-6 h-6" />
             <p className="text-gray-400 text-sm font-medium">
               智己 LS9 幻彩智慧灯语 内容创作平台
             </p>
