@@ -14,40 +14,40 @@ const HomePage = () => {
 
   const features = [
     {
-      pcImage: getAssetPath('/assets/热点工坊.png'),
-      mobileBg: getAssetPath('/assets/mobile/热点工坊背景.png'),
-      mobileBgSelected: getAssetPath('/assets/mobile/热点工坊点击状态.png'),
-      mobileIcon: getAssetPath('/assets/mobile/热点工坊图标@2x.png?v=3'),
+      pcImage: '/assets/热点工坊.png',
+      mobileBg: '/assets/mobile/热点工坊背景.png',
+      mobileBgSelected: '/assets/mobile/热点工坊点击状态.png',
+      mobileIcon: '/assets/mobile/热点工坊图标@2x.png?v=3',
       title: '热点工坊',
       subtitle: 'ISC NEWS',
       description: '挖掘每日热点\n提供更多时髦新鲜感AI工作流趋势预测，时效性领先行业',
       link: '/hot-workshop',
     },
     {
-      pcImage: getAssetPath('/assets/个性灯牌.png'),
-      mobileBg: getAssetPath('/assets/mobile/个性灯牌背景.png'),
-      mobileBgSelected: getAssetPath('/assets/mobile/个性灯牌点击状态.png'),
-      mobileIcon: getAssetPath('/assets/mobile/个性灯牌图标@2x.png?v=3'),
+      pcImage: '/assets/个性灯牌.png',
+      mobileBg: '/assets/mobile/个性灯牌背景.png',
+      mobileBgSelected: '/assets/mobile/个性灯牌点击状态.png',
+      mobileIcon: '/assets/mobile/个性灯牌图标@2x.png?v=3',
       title: '个性灯牌',
       subtitle: 'ISC WORDS',
       description: '智己为自己代言\n随行的专属广告位',
       link: '/personal-sign',
     },
     {
-      pcImage: getAssetPath('/assets/吃谷一族.png'),
-      mobileBg: getAssetPath('/assets/mobile/吃谷一族背景.png'),
-      mobileBgSelected: getAssetPath('/assets/mobile/吃谷一族点击状态.png'),
-      mobileIcon: getAssetPath('/assets/mobile/吃谷一族图标@2x.png?v=3'),
+      pcImage: '/assets/吃谷一族.png',
+      mobileBg: '/assets/mobile/吃谷一族背景.png',
+      mobileBgSelected: '/assets/mobile/吃谷一族点击状态.png',
+      mobileIcon: '/assets/mobile/吃谷一族图标@2x.png?v=3',
       title: '吃谷一族',
       subtitle: 'ISC PICS',
       description: '让所有宣到舍不得人\n都能心情愉悦',
       link: '/words-clan',
     },
     {
-      pcImage: getAssetPath('/assets/共创广场.png'),
-      mobileBg: getAssetPath('/assets/mobile/共创广场背景.png'),
-      mobileBgSelected: getAssetPath('/assets/mobile/共创广场点击状态.png'),
-      mobileIcon: getAssetPath('/assets/mobile/共创广场图标@2x.png?v=3'),
+      pcImage: '/assets/共创广场.png',
+      mobileBg: '/assets/mobile/共创广场背景.png',
+      mobileBgSelected: '/assets/mobile/共创广场点击状态.png',
+      mobileIcon: '/assets/mobile/共创广场图标@2x.png?v=3',
       title: '共创广场',
       subtitle: 'ISC LISTS',
       description: '汇集年友创意\n共创出街提案',
@@ -57,23 +57,23 @@ const HomePage = () => {
 
   const topFeatures = [
     { 
-      pcImage: getAssetPath('/assets/内容生成.png'), 
-      mobileImage: getAssetPath('/assets/mobile/内容实时生成背景.png'),
-      mobileIcon: getAssetPath('/assets/mobile/内容实时生成@2x.png'),
+      pcImage: '/assets/内容生成.png', 
+      mobileImage: '/assets/mobile/内容实时生成背景.png',
+      mobileIcon: '/assets/mobile/内容实时生成@2x.png',
       text: '内容实时生成',
       subtitle: 'AI网页工作流'
     },
     { 
-      pcImage: getAssetPath('/assets/推送即时到车.png'), 
-      mobileImage: getAssetPath('/assets/mobile/推送即时到车背景.png'),
-      mobileIcon: getAssetPath('/assets/mobile/推送即时到车@2x.png'),
+      pcImage: '/assets/推送即时到车.png', 
+      mobileImage: '/assets/mobile/推送即时到车背景.png',
+      mobileIcon: '/assets/mobile/推送即时到车@2x.png',
       text: '推送即时到车',
       subtitle: 'AI RPA桌面工作流'
     },
     { 
-      pcImage: getAssetPath('/assets/低延时快响应.png'), 
-      mobileImage: getAssetPath('/assets/mobile/低延时快响应背景.png'),
-      mobileIcon: getAssetPath('/assets/mobile/低延迟快响应@2x.png'),
+      pcImage: '/assets/低延时快响应.png', 
+      mobileImage: '/assets/mobile/低延时快响应背景.png',
+      mobileIcon: '/assets/mobile/低延迟快响应@2x.png',
       text: '低延时快响应',
       subtitle: '好用是好玩的基础'
     },
@@ -192,7 +192,7 @@ const HomePage = () => {
                     className="rounded-2xl px-4 py-4 flex items-center justify-between shadow-card overflow-hidden"
                     style={{
                       backgroundColor: '#1b1513',
-                      backgroundImage: feature.mobileImage ? `url(${feature.mobileImage})` : undefined,
+                      backgroundImage: feature.mobileImage ? `url(${getAssetPath(feature.mobileImage)})` : undefined,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                     }}
@@ -206,7 +206,7 @@ const HomePage = () => {
                       </p>
                     </div>
                     <img
-                      src={feature.mobileIcon}
+                      src={getAssetPath(feature.mobileIcon)}
                       alt={feature.text}
                       className="w-12 h-12 flex-shrink-0"
                     />
@@ -243,7 +243,7 @@ const HomePage = () => {
                     <div 
                       className="relative overflow-visible rounded-[24px] shadow-none p-6 pt-12 flex flex-col items-center justify-center text-center transition-transform hover:scale-[1.01]"
                       style={{
-                        backgroundImage: `url(${to2x(feature.pcImage)})`,
+                        backgroundImage: `url(${getAssetPath(to2x(feature.pcImage))})`,
                         backgroundSize: 'contain',
                         backgroundPosition: 'center top',
                         backgroundRepeat: 'no-repeat',
@@ -298,7 +298,7 @@ const HomePage = () => {
                         className="rounded-2xl flex items-center justify-between shadow-card overflow-hidden relative"
                         style={{
                           backgroundImage: feature.mobileBg
-                            ? `url(${activeFeatureIndex === index && feature.mobileBgSelected ? feature.mobileBgSelected : feature.mobileBg})`
+                            ? `url(${getAssetPath(activeFeatureIndex === index && feature.mobileBgSelected ? feature.mobileBgSelected : feature.mobileBg)})`
                             : undefined,
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
@@ -322,7 +322,7 @@ const HomePage = () => {
                         </div>
                         <div className="flex items-center justify-center flex-shrink-0" style={{ width: '99px', height: '93px' }}>
                           <img
-                            src={feature.mobileIcon}
+                            src={getAssetPath(feature.mobileIcon)}
                             alt={feature.title}
                             className="object-contain"
                             style={{ width: '99px', height: '93px' }}
@@ -360,7 +360,7 @@ const HomePage = () => {
                   <div 
                     className="relative group hover:scale-[1.01] transition-transform duration-300 overflow-hidden rounded-[24px] flex items-center justify-between"
                     style={{
-                      backgroundImage: `url(${features[0].pcImage})`,
+                      backgroundImage: `url(${getAssetPath(features[0].pcImage)})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       height: '300px',
@@ -399,7 +399,7 @@ const HomePage = () => {
                       <div 
                         className="relative group hover:scale-[1.02] transition-transform duration-300 overflow-hidden rounded-2xl flex flex-col"
                         style={{
-                          backgroundImage: `url(${feature.pcImage})`,
+                          backgroundImage: `url(${getAssetPath(feature.pcImage)})`,
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
                           width: '340px',
