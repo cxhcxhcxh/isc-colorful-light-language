@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, TrendingUp, Share2, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { getAssetPath } from '../constants/paths'
-const videoLists = '/videos/ISClists.mp4'
+const videoLists = getAssetPath('/videos/ISClists.mp4')
 import ShareModal from '../components/ShareModal'
 import ImagePreviewModal from '../components/ImagePreviewModal'
 

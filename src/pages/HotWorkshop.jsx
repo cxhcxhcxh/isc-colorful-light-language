@@ -6,7 +6,7 @@ import { Step1CollectTopics, Step2GenerateCopy, Step3GenerateLight, Step4Generat
 import ShareModal from '../components/ShareModal'
 import LoadingAnimation from '../components/LoadingAnimation'
 import { getAssetPath } from '../constants/paths'
-const videoNews = '/videos/ISCnews.mp4'
+const videoNews = getAssetPath('/videos/ISCnews.mp4')
 
 const HotWorkshop = () => {
   const [selectedTopic, setSelectedTopic] = useState(null)

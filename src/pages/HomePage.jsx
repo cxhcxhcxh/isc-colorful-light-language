@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Sparkles, TrendingUp, Image, List, FileText } from 'lucide-react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { getAssetPath } from '../constants/paths'
-const videoMain = '/videos/ISCmain.mp4'
+const videoMain = getAssetPath('/videos/ISCmain.mp4')
 
 const HomePage = () => {
   const isMobile = useIsMobile()

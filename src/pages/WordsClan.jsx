@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { getAssetPath } from '../constants/paths'
-const videoPics = '/videos/ISCpics.mp4'
+const videoPics = getAssetPath('/videos/ISCpics.mp4')
 import { Step1ImportImage } from '../components/WordsClanSteps'
 import ShareModal from '../components/ShareModal'
 import ImagePreviewModal from '../components/ImagePreviewModal'

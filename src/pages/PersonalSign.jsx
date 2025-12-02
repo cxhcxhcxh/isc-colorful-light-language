@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, Type, Sparkles, Share2, Download, Car } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { getAssetPath } from '../constants/paths'
-const videoWords = '/videos/ISCwords.mp4'
+const videoWords = getAssetPath('/videos/ISCwords.mp4')
 import { Step1InputText, Step2GenerateLight, Step3GeneratePoster } from '../components/PersonalSignSteps'
 import ShareModal from '../components/ShareModal'
 import LoadingAnimation from '../components/LoadingAnimation'
