@@ -3,5 +3,6 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "files": ["public/**", "src/**", "package.json", "vite.config.js"]
 }
