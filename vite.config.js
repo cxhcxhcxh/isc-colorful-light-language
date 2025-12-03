@@ -8,11 +8,15 @@ export default defineConfig({
     react(),
     {
       name: 'copy-favicon',
+      apply: 'build',
       writeBundle() {
         const src = path.resolve(__dirname, 'public/favicon.png')
         const dest = path.resolve(__dirname, 'dist/favicon.png')
         if (fs.existsSync(src)) {
           fs.copyFileSync(src, dest)
+          console.log('✓ Favicon copied to dist')
+        } else {
+          console.warn('⚠ Favicon source not found:', src)
         }
       }
     }
