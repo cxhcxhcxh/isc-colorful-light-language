@@ -9,6 +9,39 @@ export const Step1ImportImage = ({
   setImageInput,
   handleUploadConfirm
 }) => {
+  const [isDragging, setIsDragging] = useState(false)
+  const fileInputRef = useState(null)[1]
+
+  const handleFileSelect = (file) => {
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setImageInput(e.target.result)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      alert('请选择有效的图片文件')
+    }
+  }
+
+  const handleDragOver = (e) => {
+    e.preventDefault()
+    setIsDragging(true)
+  }
+
+  const handleDragLeave = () => {
+    setIsDragging(false)
+  }
+
+  const handleDrop = (e) => {
+    e.preventDefault()
+    setIsDragging(false)
+    const files = e.dataTransfer.files
+    if (files.length > 0) {
+      handleFileSelect(files[0])
+    }
+  }
+
   return (
     <motion.div
       key="step1"
@@ -44,18 +77,39 @@ export const Step1ImportImage = ({
 
       {/* 图片上传区域 */}
       <div className="rounded-2xl mx-auto mb-6" style={{ maxWidth: '1020px', background: 'rgba(43, 16, 10, 0.8)', padding: '30px' }}>
-        {/* 白色输入框 */}
-        <div className="relative mb-4">
+        {/* 隐藏的文件输入 */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            if (e.target.files.length > 0) {
+              handleFileSelect(e.target.files[0])
+            }
+          }}
+          className="hidden"
+          id="imageFileInput"
+        />
+
+        {/* 白色输入框 - 可拖拽 */}
+        <div 
+          className={`relative mb-4 cursor-pointer transition-all ${isDragging ? 'opacity-70' : ''}`}
+          onClick={() => document.getElementById('imageFileInput').click()}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
           <input
             type="text"
             value={imageInput}
             onChange={(e) => setImageInput(e.target.value)}
-            placeholder="输入框点击或拖拽图片到此处"
+            placeholder="点击选择或拖拽图片到此处"
             className="w-full bg-white text-gray-900 px-4 py-6 rounded-2xl focus:outline-none focus:ring-0 placeholder:text-gray-400 text-2xl text-center"
             style={{ height: '80px' }}
+            readOnly={imageInput && imageInput.startsWith('data:')}
           />
           {/* 右上角上传图标 */}
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <img
               src={getAssetPath('/assets/上.png')}
               alt="上传"
