@@ -160,21 +160,21 @@ export const Step2GenerateCopy = ({
             <div
               key={copy.id}
               onClick={() => handleCopySelect(copy)}
-              className={`relative rounded-xl md:rounded-2xl cursor-pointer transition-all flex items-center justify-between px-4 md:px-6 ${
+              className={`relative rounded-xl md:rounded-2xl cursor-pointer transition-all flex items-center justify-center ${
                 selectedCopy?.id === copy.id
                   ? 'bg-[#8D4535]'
                   : 'bg-[#381912] hover:bg-[#4a2318]'
               }`}
               style={{ height: '60px' }}
             >
-              {/* 文案文本：左对齐 */}
-              <span className="text-[#fff1e7]/80 text-sm md:text-xl lg:text-2xl pointer-events-none select-none flex-1" style={{ lineHeight: '1.2' }}>
+              {/* 文案文本：居中 */}
+              <span className="text-[#fff1e7]/80 text-sm md:text-xl lg:text-2xl pointer-events-none select-none text-center px-2" style={{ lineHeight: '1.2' }}>
                 {copy.text}
               </span>
 
-              {/* 右侧确认按钮 */}
+              {/* 右侧确认按钮：贴边且不影响中间内容居中 */}
               {selectedCopy?.id === copy.id && (
-                <button className="ml-2 md:ml-4 bg-[#ff5b4a] text-white text-[10px] md:text-sm px-3 md:px-6 py-2 rounded-lg font-medium hover:brightness-110 transition-colors flex-shrink-0">
+                <button className="absolute inset-y-0 right-0 bg-[#ff5b4a] text-white text-[10px] md:text-[11px] px-3 md:px-5 rounded-r-xl rounded-l-none font-medium hover:brightness-110 transition-colors flex items-center justify-center">
                   确认
                 </button>
               )}
