@@ -215,9 +215,9 @@ const WordsClan = () => {
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-base md:text-lg font-bold text-white mb-2">移动与裁剪</h3>
-            <p className="text-gray-200 text-xs mb-1">16:9 画幅裁剪</p>
-            <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed">
+            <h3 className="text-lg md:text-2xl font-bold text-white mb-2">移动与裁剪</h3>
+            <p className="text-gray-200 text-xs md:text-base mb-1">16:9 画幅裁剪</p>
+            <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
               支持拖动 / 缩放，默认为图片居中且宽度撑满
             </p>
           </div>
@@ -331,11 +331,11 @@ const WordsClan = () => {
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-base md:text-xl font-bold text-white mb-2">AI 处理灯语图</h3>
-            <p className="text-gray-300 text-[10px] md:text-xs mb-1">
+            <h3 className="text-lg md:text-2xl font-bold text-white mb-2">AI 处理灯语图</h3>
+            <p className="text-gray-300 text-xs md:text-base mb-1">
               调整核心参数，微调灯语图的细节表现
             </p>
-            <p className="text-gray-500 text-[10px]">
+            <p className="text-gray-500 text-xs md:text-sm">
               数值仅作预览调节，不影响原始素材
             </p>
           </div>
@@ -548,11 +548,11 @@ const WordsClan = () => {
             </div>
 
             <div className="text-center mb-6">
-              <h3 className="text-base md:text-xl font-bold text-white mb-2">AI 生成灯语分享图</h3>
-              <p className="text-gray-300 text-[10px] md:text-xs mb-1">
+              <h3 className="text-lg md:text-2xl font-bold text-white mb-2">AI 生成灯语分享图</h3>
+              <p className="text-gray-300 text-xs md:text-base mb-1">
                 为选中的灯语图，生成 2 种海报选项
               </p>
-              <p className="text-gray-500 text-[10px] md:text-xs">
+              <p className="text-gray-500 text-xs md:text-sm">
                 16:9 画幅，将灯语铺在后备箱 ISC 位置，加上图标和内容
               </p>
             </div>

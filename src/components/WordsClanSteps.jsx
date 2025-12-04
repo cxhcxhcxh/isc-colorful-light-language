@@ -64,12 +64,12 @@ export const Step1ImportImage = ({
              }}>
           1
         </div>
-        <h3 className="text-2xl md:text-4xl font-normal text-white text-center" style={{ lineHeight: '1.2' }}>导入图片</h3>
+        <h3 className="text-lg md:text-2xl font-normal text-white text-center" style={{ lineHeight: '1.2' }}>导入图片</h3>
       </div>
 
       {/* 描述文字 - 居中 */}
       <div className="text-center mb-6">
-        <p className="text-white/60 text-sm md:text-xl leading-relaxed">
+        <p className="text-white/60 text-xs md:text-base leading-relaxed">
           上传喜欢的谷子图像<br />
           图形越简洁清晰，显示效果越好
         </p>
