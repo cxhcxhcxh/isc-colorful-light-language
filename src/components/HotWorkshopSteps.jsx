@@ -350,15 +350,15 @@ export const Step4GeneratePoster = ({
                   border: isSelectedPoster ? '2px solid #ffb979' : 'none'
                 }}
               >
-                <div className="flex items-center justify-center p-6 md:p-8 aspect-[3/4]">
-                  <div className="w-16 h-16 md:w-24 md:h-24 lg:w-[120px] lg:h-[120px] rounded-lg bg-[#3d1e16] flex items-center justify-center text-gray-400">
+                <div className="flex items-center justify-center p-4 md:p-6" style={{ minHeight: '200px', maxHeight: '300px' }}>
+                  <div className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-lg bg-[#3d1e16] flex items-center justify-center text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.5"
-                      className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12"
+                      className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
                     >
                       <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
                       <circle cx="9" cy="10" r="1.5" />
