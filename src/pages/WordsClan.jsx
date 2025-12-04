@@ -334,7 +334,7 @@ const WordsClan = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span>R 值</span>
-                <span className="text-gray-400">0 - 255</span>
+                <span className="text-[#ff6b7b] font-medium">{rValue}</span>
               </div>
               <input
                 type="range"
@@ -349,7 +349,7 @@ const WordsClan = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span>G 值</span>
-                <span className="text-gray-400">0 - 255</span>
+                <span className="text-[#ff6b7b] font-medium">{gValue}</span>
               </div>
               <input
                 type="range"
@@ -364,7 +364,7 @@ const WordsClan = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span>像素化级别</span>
-                <span className="text-gray-400">0 - 30</span>
+                <span className="text-[#ff6b7b] font-medium">{pixelLevel}</span>
               </div>
               <input
                 type="range"
@@ -379,7 +379,7 @@ const WordsClan = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span>对比度</span>
-                <span className="text-gray-400">50% - 300%</span>
+                <span className="text-[#ff6b7b] font-medium">{contrast}%</span>
               </div>
               <input
                 type="range"
@@ -394,7 +394,7 @@ const WordsClan = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span>亮度</span>
-                <span className="text-gray-400">50% - 300%</span>
+                <span className="text-[#ff6b7b] font-medium">{brightness}%</span>
               </div>
               <input
                 type="range"
@@ -409,7 +409,7 @@ const WordsClan = () => {
             <div>
               <div className="flex justify-between mb-1">
                 <span>暗角程度</span>
-                <span className="text-gray-400">0 - 100</span>
+                <span className="text-[#ff6b7b] font-medium">{vignette}</span>
               </div>
               <input
                 type="range"
