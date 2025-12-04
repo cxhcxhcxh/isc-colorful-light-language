@@ -362,12 +362,11 @@ const WordsClan = () => {
                       `,
                       transform: `scale(${imageScale}) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
                       imageRendering: pixelLevel > 0 ? 'pixelated' : 'auto',
+                      // 像素化效果：通过缩小图片尺寸实现
                       ...(pixelLevel > 0 && {
-                        filter: `
-                          contrast(${contrast}%)
-                          brightness(${brightness}%)
-                          blur(${pixelLevel * 0.1}px)
-                        `
+                        width: `${100 - pixelLevel * 2}%`,
+                        height: `${100 - pixelLevel * 2}%`,
+                        margin: 'auto'
                       })
                     }}
                   />
