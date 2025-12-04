@@ -165,7 +165,10 @@ export const Step2GenerateCopy = ({
                   ? 'bg-[#8D4535]'
                   : 'bg-[#381912] hover:bg-[#4a2318]'
               }`}
-              style={{ height: '60px' }}
+              style={{ 
+                height: '60px',
+                border: selectedCopy?.id === copy.id ? '2px solid #ffb979' : 'none'
+              }}
             >
               {/* 文案文本：居中 */}
               <span className="text-[#fff1e7]/80 text-sm md:text-xl lg:text-2xl pointer-events-none select-none text-center px-2" style={{ lineHeight: '1.2' }}>
