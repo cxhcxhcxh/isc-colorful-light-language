@@ -31,12 +31,12 @@ export const Step1CollectTopics = ({
              }}>
           1
         </div>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal text-white text-center" style={{ lineHeight: '1.2' }}>AI 爬取实时热点榜单</h3>
+        <h3 className="text-lg md:text-3xl lg:text-4xl font-normal text-white text-center" style={{ lineHeight: '1.2' }}>AI 爬取实时热点榜单</h3>
       </div>
 
       {/* 描述文字 - 居中 */}
       <div className="text-center mb-4 md:mb-6">
-        <p className="text-white/60 text-sm md:text-base lg:text-xl leading-relaxed">
+        <p className="text-white/60 text-xs md:text-base lg:text-xl leading-relaxed">
           收集微博、抖音、头条热榜，罗列前 5 选项<br/>
           只使用文娱类内容，排除政治和非正能量内容，做合并排序
         </p>
@@ -44,10 +44,10 @@ export const Step1CollectTopics = ({
       
       <button 
         onClick={handleStartCollect}
-        className="w-full text-white font-bold rounded-xl md:rounded-2xl mb-4 md:mb-5 hover:shadow-lg hover:brightness-105 transition-all text-lg md:text-2xl lg:text-3xl"
+        className="w-full text-white font-bold rounded-xl md:rounded-2xl mb-4 md:mb-5 hover:shadow-lg hover:brightness-105 transition-all text-base md:text-2xl lg:text-3xl"
         style={{
           background: 'linear-gradient(90deg, #F76964 0%, #EA805A 100%)',
-          height: '60px',
+          height: '50px',
           lineHeight: '1.2'
         }}
       >
@@ -65,7 +65,7 @@ export const Step1CollectTopics = ({
       {hasCollectedTopics && !isLoadingTopics && (
         <div>
           {/* 热点热梗标题 - 渐变文字 */}
-          <h4 className="text-white text-center font-bold text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6 gradient-text" style={{ lineHeight: '1.2' }}>热点热梗</h4>
+          <h4 className="text-white text-center font-bold text-xl md:text-3xl lg:text-4xl mb-4 md:mb-6 gradient-text" style={{ lineHeight: '1.2' }}>热点热梗</h4>
 
           {/* 列表容器 */}
           <div className="space-y-2 md:space-y-3 mx-auto" style={{ maxWidth: '960px' }}>
@@ -82,7 +82,7 @@ export const Step1CollectTopics = ({
               >
                 {/* 文案+热 标签：居中 */}
                 <div className="pointer-events-none select-none flex items-center justify-center gap-2 md:gap-3 px-2">
-                  <span className="text-[#fff1e7]/80 text-base md:text-xl lg:text-2xl text-center truncate" style={{ lineHeight: '1.2' }}>文案热点文案热点文案热点文案热点</span>
+                  <span className="text-[#fff1e7]/80 text-sm md:text-xl lg:text-2xl text-center truncate" style={{ lineHeight: '1.2' }}>文案热点文案热点文案热点文案热点</span>
                   <img
                     src={getAssetPath('/assets/标签热点.png')}
                     alt="热点标签"
@@ -135,25 +135,25 @@ export const Step2GenerateCopy = ({
              }}>
           2
         </div>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 有梗文案</h3>
+        <h3 className="text-lg md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 有梗文案</h3>
       </div>
 
       {/* 描述文字 - 居中 */}
       <div className="text-center mb-4 md:mb-6">
-        <p className="text-white/60 text-sm md:text-base lg:text-xl leading-relaxed">
+        <p className="text-white/60 text-xs md:text-base lg:text-xl leading-relaxed">
           为选中的热点内容，生成 5 种中英文选项<br />
           只使用简单内容和笔画字符，长度不超过 8 个中文字符
         </p>
       </div>
 
       {/* 选中热点文案条 */}
-      <div className="mx-auto rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center flex items-center justify-center" style={{ maxWidth: '1020px', height: '60px', background: 'rgba(43, 16, 10, 0.8)' }}>
-        <span className="text-white text-xl md:text-2xl lg:text-3xl font-bold" style={{ lineHeight: '1.2' }}>选中热点文案</span>
+      <div className="mx-auto rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center flex items-center justify-center" style={{ maxWidth: '1020px', height: '50px', background: 'rgba(43, 16, 10, 0.8)' }}>
+        <span className="text-white text-base md:text-2xl lg:text-3xl font-bold" style={{ lineHeight: '1.2' }}>选中热点文案</span>
       </div>
 
       {/* 文案列表容器 */}
       <div className="rounded-xl md:rounded-2xl mx-auto space-y-2 md:space-y-3 mb-4 md:mb-6 p-4 md:p-6 lg:p-8" style={{ maxWidth: '1020px', background: 'rgba(43, 16, 10, 0.8)' }}>
-        <h5 className="text-white text-center text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>文案 5 种</h5>
+        <h5 className="text-white text-center text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>文案 5 种</h5>
 
         <div className="space-y-2 md:space-y-3 mx-auto" style={{ maxWidth: '960px' }}>
           {mockCopyOptions.map((copy) => (
@@ -168,13 +168,13 @@ export const Step2GenerateCopy = ({
               style={{ height: '60px' }}
             >
               {/* 文案文本：左对齐 */}
-              <span className="text-[#fff1e7]/80 text-base md:text-xl lg:text-2xl pointer-events-none select-none flex-1" style={{ lineHeight: '1.2' }}>
+              <span className="text-[#fff1e7]/80 text-sm md:text-xl lg:text-2xl pointer-events-none select-none flex-1" style={{ lineHeight: '1.2' }}>
                 {copy.text}
               </span>
 
               {/* 右侧确认按钮 */}
               {selectedCopy?.id === copy.id && (
-                <button className="ml-4 bg-[#ff5b4a] text-white text-xs md:text-sm px-4 md:px-6 py-2 rounded-lg font-medium hover:brightness-110 transition-colors flex-shrink-0">
+                <button className="ml-2 md:ml-4 bg-[#ff5b4a] text-white text-[10px] md:text-sm px-3 md:px-6 py-2 rounded-lg font-medium hover:brightness-110 transition-colors flex-shrink-0">
                   确认
                 </button>
               )}
@@ -216,25 +216,25 @@ export const Step3GenerateLight = ({
              }}>
           3
         </div>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成灯语图</h3>
+        <h3 className="text-lg md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成灯语图</h3>
       </div>
 
       {/* 描述文字 - 居中 */}
       <div className="text-center mb-4 md:mb-6">
-        <p className="text-white/60 text-sm md:text-base lg:text-xl leading-relaxed">
+        <p className="text-white/60 text-xs md:text-base lg:text-xl leading-relaxed">
           选中的文案，生成 2 种灯语选项<br />
           16:9 画幅，只使用红橙色系，中文和英文
         </p>
       </div>
 
       {/* 选中热点文案条 */}
-      <div className="mx-auto rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center flex items-center justify-center" style={{ maxWidth: '1020px', height: '60px', background: 'rgba(43, 16, 10, 0.8)' }}>
-        <span className="text-white text-xl md:text-2xl lg:text-3xl font-bold" style={{ lineHeight: '1.2' }}>选中热点文案</span>
+      <div className="mx-auto rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center flex items-center justify-center" style={{ maxWidth: '1020px', height: '50px', background: 'rgba(43, 16, 10, 0.8)' }}>
+        <span className="text-white text-base md:text-2xl lg:text-3xl font-bold" style={{ lineHeight: '1.2' }}>选中热点文案</span>
       </div>
 
       {/* 图片列表容器 */}
       <div className="rounded-xl md:rounded-2xl mx-auto space-y-3 md:space-y-4 mb-4 md:mb-6 p-4 md:p-6 lg:p-8" style={{ maxWidth: '1020px', background: 'rgba(43, 16, 10, 0.8)' }}>
-        <h5 className="text-white text-center text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 gradient-text" style={{ lineHeight: '1.2' }}>灯语方案</h5>
+        <h5 className="text-white text-center text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 gradient-text" style={{ lineHeight: '1.2' }}>灯语方案</h5>
 
         <div className="space-y-3 md:space-y-4 mx-auto" style={{ maxWidth: '960px' }}>
           {[1, 2].map((id) => {
@@ -326,12 +326,12 @@ export const Step4GeneratePoster = ({
                }}>
             4
           </div>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成灯语分享图</h3>
+          <h3 className="text-lg md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成灯语分享图</h3>
         </div>
 
         {/* 描述文字 - 居中 */}
         <div className="text-center mb-4 md:mb-6">
-          <p className="text-white/60 text-sm md:text-base lg:text-xl leading-relaxed">
+          <p className="text-white/60 text-xs md:text-base lg:text-xl leading-relaxed">
             为选中的灯语图，生成 2 种海报选项<br />
             3:4 画幅，将灯语图贴合在 LS9 尾 ISC 位置，加上原热点内容
           </p>
