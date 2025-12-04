@@ -499,7 +499,7 @@ const WordsClan = () => {
                       {/* 3:4 占位海报 */}
                       <div 
                         className="bg-[#2a0f0a] rounded-t-xl flex items-center justify-center cursor-pointer hover:bg-[#3a1810] transition-colors"
-                        style={{ height: '200px' }}
+                        style={{ height: '400px' }}
                         onClick={(e) => {
                           e.stopPropagation()
                           setPreviewImage(null)
