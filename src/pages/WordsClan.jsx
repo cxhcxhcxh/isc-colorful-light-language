@@ -126,7 +126,7 @@ const WordsClan = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-6 md:py-12 px-4 overflow-hidden">
+      <section className="relative py-8 md:py-12 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-coral/10 to-transparent pointer-events-none" />
         
         <motion.div
