@@ -57,19 +57,19 @@ export const Step1ImportImage = ({
     >
       {/* 步骤编号和标题 */}
       <div className="relative mb-4">
-        <div className="absolute left-0 top-0 w-[70px] h-[70px] rounded-full flex items-center justify-center text-white pixel-font text-4xl" 
+        <div className="absolute left-0 top-0 w-[50px] h-[50px] md:w-[70px] md:h-[70px] rounded-full flex items-center justify-center text-white pixel-font text-2xl md:text-4xl" 
              style={{ 
                background: 'linear-gradient(153.43deg, rgba(234, 128, 90, 0.5) 0%, rgba(234, 128, 90, 0.0288462) 81.33%)',
-               lineHeight: '37px'
+               lineHeight: '1'
              }}>
           1
         </div>
-        <h3 className="text-4xl font-normal text-white text-center" style={{ lineHeight: '50px' }}>导入图片</h3>
+        <h3 className="text-2xl md:text-4xl font-normal text-white text-center" style={{ lineHeight: '1.2' }}>导入图片</h3>
       </div>
 
       {/* 描述文字 - 居中 */}
       <div className="text-center mb-6">
-        <p className="text-white/60 text-xl leading-7">
+        <p className="text-white/60 text-sm md:text-xl leading-relaxed">
           上传喜欢的谷子图像<br />
           图形越简洁清晰，显示效果越好
         </p>
@@ -104,8 +104,8 @@ export const Step1ImportImage = ({
             value={imageInput}
             onChange={(e) => setImageInput(e.target.value)}
             placeholder="点击选择或拖拽图片到此处"
-            className="w-full bg-white text-gray-900 px-4 py-6 rounded-2xl focus:outline-none focus:ring-0 placeholder:text-gray-400 text-2xl text-center"
-            style={{ height: '80px' }}
+            className="w-full bg-white text-gray-900 px-4 py-4 md:py-6 rounded-2xl focus:outline-none focus:ring-0 placeholder:text-gray-400 text-sm md:text-2xl text-center"
+            style={{ height: '60px', '@media (min-width: 768px)': { height: '80px' } }}
             readOnly={imageInput && imageInput.startsWith('data:')}
           />
           {/* 右上角上传图标 */}
@@ -121,11 +121,10 @@ export const Step1ImportImage = ({
         {/* 确认上传按钮 */}
         <button
           onClick={handleUploadConfirm}
-          className="w-full text-white font-bold rounded-2xl hover:brightness-110 transition-all text-2xl"
+          className="w-full text-white font-bold rounded-2xl hover:brightness-110 transition-all text-base md:text-2xl py-4 md:py-0"
           style={{
             background: '#B54648',
-            height: '80px',
-            lineHeight: '34px'
+            minHeight: '60px'
           }}
         >
           确认上传

@@ -135,18 +135,18 @@ const WordsClan = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto text-center relative z-10"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <h1 className="text-3xl font-bold gradient-text" style={{ lineHeight: '42px' }}>
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-4">
+            <h1 className="text-xl md:text-3xl font-bold gradient-text" style={{ lineHeight: '1.4' }}>
               ISC PICS 吃谷一族
             </h1>
             <img
               src={getAssetPath('/assets/幻彩星星.png')}
               alt="装饰星星"
-              className="w-8 h-8"
+              className="w-6 h-6 md:w-8 md:h-8"
             />
           </div>
           
-          <p className="text-lg text-white/60 mb-8" style={{ lineHeight: '24px' }}>
+          <p className="text-sm md:text-lg text-white/60 mb-8" style={{ lineHeight: '1.5' }}>
             让所有看到的谷子的人，都能心情愉悦
           </p>
         </motion.div>
@@ -170,13 +170,13 @@ const WordsClan = () => {
           className="bg-[#2a0f0a] rounded-xl px-6 pt-5 pb-7 border border-[#5a2316]/60 relative"
         >
           <div className="mb-4 flex items-center">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#5a3324] to-[#c16b3a] flex items-center justify-center text-white/80 pixel-font text-base">
+            <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-[#5a3324] to-[#c16b3a] flex items-center justify-center text-white/80 pixel-font text-sm md:text-base">
               2
             </div>
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-lg font-bold text-white mb-2">移动与裁剪</h3>
+            <h3 className="text-base md:text-lg font-bold text-white mb-2">移动与裁剪</h3>
             <p className="text-gray-200 text-xs mb-1">16:9 画幅裁剪</p>
             <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed">
               支持拖动 / 缩放，默认为图片居中且宽度撑满
@@ -286,13 +286,13 @@ const WordsClan = () => {
             className="bg-[#2a0f0a] rounded-xl px-6 pt-5 pb-7 border border-[#5a2316]/60 relative"
           >
           <div className="mb-4 flex items-center">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#5a3324] to-[#c16b3a] flex items-center justify-center text-white/80 pixel-font text-base">
+            <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-[#5a3324] to-[#c16b3a] flex items-center justify-center text-white/80 pixel-font text-sm md:text-base">
               3
             </div>
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-white mb-2">AI 处理灯语图</h3>
+            <h3 className="text-base md:text-xl font-bold text-white mb-2">AI 处理灯语图</h3>
             <p className="text-gray-300 text-[10px] md:text-xs mb-1">
               调整核心参数，微调灯语图的细节表现
             </p>
@@ -465,13 +465,13 @@ const WordsClan = () => {
             className="bg-[#2a0f0a] rounded-xl px-6 pt-5 pb-7 border border-[#5a2316]/60 relative mb-4"
           >
             <div className="mb-4 flex items-center">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#5a3324] to-[#c16b3a] flex items-center justify-center text-white/80 pixel-font text-base">
+              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-[#5a3324] to-[#c16b3a] flex items-center justify-center text-white/80 pixel-font text-sm md:text-base">
                 4
               </div>
             </div>
 
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-white mb-2">AI 生成灯语分享图</h3>
+              <h3 className="text-base md:text-xl font-bold text-white mb-2">AI 生成灯语分享图</h3>
               <p className="text-gray-300 text-[10px] md:text-xs mb-1">
                 为选中的灯语图，生成 2 种海报选项
               </p>
