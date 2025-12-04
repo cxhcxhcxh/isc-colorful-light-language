@@ -126,7 +126,7 @@ const WordsClan = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-12 px-4 overflow-hidden">
+      <section className="relative py-6 md:py-12 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-coral/10 to-transparent pointer-events-none" />
         
         <motion.div
@@ -135,8 +135,8 @@ const WordsClan = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto text-center relative z-10"
         >
-          <div className="flex items-center justify-center gap-2 md:gap-3 mb-4">
-            <h1 className="text-xl md:text-3xl font-bold gradient-text" style={{ lineHeight: '1.4' }}>
+          <div className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text" style={{ lineHeight: '1.2' }}>
               ISC PICS 吃谷一族
             </h1>
             <img
@@ -146,14 +146,14 @@ const WordsClan = () => {
             />
           </div>
           
-          <p className="text-sm md:text-lg text-white/60 mb-8" style={{ lineHeight: '1.5' }}>
+          <p className="text-sm md:text-base lg:text-lg text-white/60 mb-4 md:mb-8" style={{ lineHeight: '1.4' }}>
             让所有看到的谷子的人，都能心情愉悦
           </p>
         </motion.div>
       </section>
 
       {/* Step Cards */}
-      <div className="container mx-auto px-4 pb-6" style={{ maxWidth: '1120px' }}>
+      <div className="container mx-auto px-4 pb-6 max-w-full md:max-w-4xl lg:max-w-6xl" style={{ maxWidth: '1120px' }}>
         <div className="space-y-4">
           {/* Step 1: 导入图片 - 始终显示 */}
           <Step1ImportImage
