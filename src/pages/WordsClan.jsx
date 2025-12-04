@@ -303,30 +303,68 @@ const WordsClan = () => {
 
           <div className="mb-5">
             <div 
-              className="w-full bg-white/95 rounded-2xl px-4 py-4 flex flex-col items-center justify-center text-center aspect-[16/9] overflow-hidden cursor-pointer hover:bg-white transition-colors"
+              className="w-full bg-white/95 rounded-2xl overflow-hidden cursor-pointer hover:bg-white transition-colors aspect-[16/9] relative"
               onClick={() => {
-                setPreviewImage(null)
+                setPreviewImage(imageInput)
                 setPreviewTitle('AI 处理灯语图预览')
                 setIsPreviewModalOpen(true)
               }}
             >
-              <div className="w-8 h-8 mb-2 rounded-md bg-gray-200 flex items-center justify-center text-gray-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="w-4 h-4"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
-                  <circle cx="9" cy="10" r="1.5" />
-                  <path d="M21 16l-4.5-4.5L12 16l-2-2-4 4" />
-                </svg>
-              </div>
-              <p className="text-gray-600 text-xs md:text-sm">
-                16:9 尺寸，实时调节预览框
-              </p>
+              {imageInput ? (
+                <div className="w-full h-full relative overflow-hidden">
+                  <img
+                    src={imageInput}
+                    alt="处理预览"
+                    className="w-full h-full object-cover"
+                    style={{
+                      filter: `
+                        contrast(${contrast}%)
+                        brightness(${brightness}%)
+                      `,
+                      transform: `scale(${imageScale}) translate(${imagePosition.x}px, ${imagePosition.y}px)`
+                    }}
+                  />
+                  {/* 暗角效果 */}
+                  {vignette > 0 && (
+                    <div 
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: `radial-gradient(circle, transparent 0%, rgba(0,0,0,${vignette / 100}) 100%)`
+                      }}
+                    />
+                  )}
+                  {/* RGB 色彩叠加 */}
+                  {(rValue > 0 || gValue > 0) && (
+                    <div 
+                      className="absolute inset-0 pointer-events-none mix-blend-screen"
+                      style={{
+                        backgroundColor: `rgb(${rValue}, ${gValue}, 0)`,
+                        opacity: 0.3
+                      }}
+                    />
+                  )}
+                </div>
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center text-center px-4 py-4">
+                  <div className="w-8 h-8 mb-2 rounded-md bg-gray-200 flex items-center justify-center text-gray-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      className="w-4 h-4"
+                    >
+                      <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
+                      <circle cx="9" cy="10" r="1.5" />
+                      <path d="M21 16l-4.5-4.5L12 16l-2-2-4 4" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-600 text-xs md:text-sm">
+                    16:9 尺寸，实时调节预览框
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
