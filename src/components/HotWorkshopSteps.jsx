@@ -303,6 +303,39 @@ export const Step4GeneratePoster = ({
   handleReset,
   setIsShareModalOpen
 }) => {
+  
+  const handleDownloadPoster = (posterId) => {
+    // 创建一个临时的 canvas 来生成下载图片
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    
+    // 设置 canvas 尺寸为 3:4 比例
+    canvas.width = 1080
+    canvas.height = 1440
+    
+    // 绘制背景色
+    ctx.fillStyle = '#2a0f0a'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    
+    // 添加文字（示例）
+    ctx.fillStyle = '#ffffff'
+    ctx.font = '48px Arial'
+    ctx.textAlign = 'center'
+    ctx.fillText('ISC NEWS 热点工坊', canvas.width / 2, canvas.height / 2)
+    
+    // 转换为下载链接
+    canvas.toBlob((blob) => {
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `ISC-热点工坊-海报${posterId}-${Date.now()}.png`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    }, 'image/png')
+  }
+  
   return (
     <>
       <motion.div
@@ -377,7 +410,15 @@ export const Step4GeneratePoster = ({
                     >
                       分享
                     </button>
-                    <button className="flex-1 bg-[#3a1810] text-white hover:bg-[#4b2519] transition-colors">下载</button>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleDownloadPoster(id)
+                      }}
+                      className="flex-1 bg-[#3a1810] text-white hover:bg-[#4b2519] transition-colors"
+                    >
+                      下载
+                    </button>
                     <button className="flex-1 bg-[#ff6b7b] text-white">确认</button>
                   </div>
                 )}
