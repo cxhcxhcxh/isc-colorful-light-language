@@ -360,7 +360,15 @@ const WordsClan = () => {
                         contrast(${contrast}%)
                         brightness(${brightness}%)
                       `,
-                      transform: `scale(${imageScale}) translate(${imagePosition.x}px, ${imagePosition.y}px)`
+                      transform: `scale(${imageScale}) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
+                      imageRendering: pixelLevel > 0 ? 'pixelated' : 'auto',
+                      ...(pixelLevel > 0 && {
+                        filter: `
+                          contrast(${contrast}%)
+                          brightness(${brightness}%)
+                          blur(${pixelLevel * 0.1}px)
+                        `
+                      })
                     }}
                   />
                   {/* 暗角效果 */}
