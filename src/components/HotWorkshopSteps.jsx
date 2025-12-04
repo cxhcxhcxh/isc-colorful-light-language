@@ -337,7 +337,7 @@ export const Step4GeneratePoster = ({
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-3 md:gap-6 mx-auto" style={{ maxWidth: '1020px' }}>
+        <div className="flex flex-row gap-2 md:gap-6 mx-auto" style={{ maxWidth: '1020px' }}>
           {[1, 2].map((id) => {
             const isSelectedPoster = selectedLight?.posterId === id
             return (
@@ -350,15 +350,15 @@ export const Step4GeneratePoster = ({
                   border: isSelectedPoster ? '2px solid #ffb979' : 'none'
                 }}
               >
-                <div className="flex items-center justify-center py-8 md:py-12">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[#3d1e16] flex items-center justify-center text-gray-400">
+                <div className="flex items-center justify-center py-6 md:py-10">
+                  <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg bg-[#3d1e16] flex items-center justify-center text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.5"
-                      className="w-5 h-5 md:w-6 md:h-6"
+                      className="w-4 h-4 md:w-6 md:h-6"
                     >
                       <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
                       <circle cx="9" cy="10" r="1.5" />
