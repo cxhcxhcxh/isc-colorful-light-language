@@ -350,7 +350,7 @@ export const Step4GeneratePoster = ({
                   border: isSelectedPoster ? '2px solid #ffb979' : 'none'
                 }}
               >
-                <div className="flex items-center justify-center" style={{ height: '400px' }}>
+                <div className="flex items-center justify-center" style={{ height: '300px' }}>
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#3d1e16] flex items-center justify-center text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
