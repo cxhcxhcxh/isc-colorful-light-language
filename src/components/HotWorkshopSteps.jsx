@@ -312,9 +312,9 @@ export const Step4GeneratePoster = ({
     const canvas = document.createElement('canvas')
     const ctx = canvas.getContext('2d')
     
-    // 设置 canvas 尺寸为 9:16 比例（竖版）
+    // 设置 canvas 尺寸为 3:4 比例（竖版）
     canvas.width = 1080
-    canvas.height = 1920
+    canvas.height = 1440
     
     // 绘制背景色
     ctx.fillStyle = '#2a0f0a'
@@ -369,7 +369,7 @@ export const Step4GeneratePoster = ({
         <div className="text-center mb-4 md:mb-6">
           <p className="text-white/60 text-xs md:text-base lg:text-xl leading-relaxed">
             为选中的灯语图，生成 2 种海报选项<br />
-            9:16 画幅，将灯语图贴合在 LS9 尾 ISC 位置，加上原热点内容
+            3:4 画幅，将灯语图贴合在 LS9 尾 ISC 位置，加上原热点内容
           </p>
         </div>
 
@@ -386,7 +386,7 @@ export const Step4GeneratePoster = ({
                   border: isSelectedPoster ? '2px solid #ffb979' : 'none'
                 }}
               >
-                <div className="flex items-center justify-center" style={{ height: '500px' }}>
+                <div className="flex items-center justify-center" style={{ height: '400px' }}>
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#3d1e16] flex items-center justify-center text-gray-400">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
