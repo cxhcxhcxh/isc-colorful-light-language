@@ -64,8 +64,8 @@ export const Step1CollectTopics = ({
 
       {hasCollectedTopics && !isLoadingTopics && (
         <div>
-          {/* 热点TOP5标题 */}
-          <h4 className="text-white text-center font-bold text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>热点 TOP5</h4>
+          {/* 热点热梗标题 - 渐变文字 */}
+          <h4 className="text-white text-center font-bold text-2xl md:text-3xl lg:text-4xl mb-4 md:mb-6 gradient-text" style={{ lineHeight: '1.2' }}>热点热梗</h4>
 
           {/* 列表容器 */}
           <div className="space-y-2 md:space-y-3 mx-auto" style={{ maxWidth: '960px' }}>
@@ -135,7 +135,7 @@ export const Step2GenerateCopy = ({
              }}>
           2
         </div>
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成有梗文案</h3>
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 有梗文案</h3>
       </div>
 
       {/* 描述文字 - 居中 */}
@@ -160,21 +160,21 @@ export const Step2GenerateCopy = ({
             <div
               key={copy.id}
               onClick={() => handleCopySelect(copy)}
-              className={`relative rounded-xl md:rounded-2xl cursor-pointer transition-all flex items-center justify-center ${
+              className={`relative rounded-xl md:rounded-2xl cursor-pointer transition-all flex items-center justify-between px-4 md:px-6 ${
                 selectedCopy?.id === copy.id
-                  ? 'bg-[#8D4535] border-2 border-[#ffb979]'
+                  ? 'bg-[#8D4535]'
                   : 'bg-[#381912] hover:bg-[#4a2318]'
               }`}
               style={{ height: '60px' }}
             >
-              {/* 文案文本：居中 */}
-              <span className="text-[#fff1e7]/80 text-base md:text-xl lg:text-2xl text-center pointer-events-none select-none px-2" style={{ lineHeight: '1.2' }}>
+              {/* 文案文本：左对齐 */}
+              <span className="text-[#fff1e7]/80 text-base md:text-xl lg:text-2xl pointer-events-none select-none flex-1" style={{ lineHeight: '1.2' }}>
                 {copy.text}
               </span>
 
               {/* 右侧确认按钮 */}
               {selectedCopy?.id === copy.id && (
-                <button className="absolute inset-y-0 right-0 bg-[#ff5b4a] text-white text-xs md:text-sm px-4 md:px-6 rounded-r-xl md:rounded-r-2xl font-medium hover:brightness-110 transition-colors flex items-center justify-center">
+                <button className="ml-4 bg-[#ff5b4a] text-white text-xs md:text-sm px-4 md:px-6 py-2 rounded-lg font-medium hover:brightness-110 transition-colors flex-shrink-0">
                   确认
                 </button>
               )}
@@ -234,7 +234,7 @@ export const Step3GenerateLight = ({
 
       {/* 图片列表容器 */}
       <div className="rounded-xl md:rounded-2xl mx-auto space-y-3 md:space-y-4 mb-4 md:mb-6 p-4 md:p-6 lg:p-8" style={{ maxWidth: '1020px', background: 'rgba(43, 16, 10, 0.8)' }}>
-        <h5 className="text-white text-center text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>图片 2 种</h5>
+        <h5 className="text-white text-center text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 gradient-text" style={{ lineHeight: '1.2' }}>灯语方案</h5>
 
         <div className="space-y-3 md:space-y-4 mx-auto" style={{ maxWidth: '960px' }}>
           {[1, 2].map((id) => {

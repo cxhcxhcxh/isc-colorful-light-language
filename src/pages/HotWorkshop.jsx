@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, TrendingUp, Sparkles, Share2, Download, Car } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { TrendingUp, Sparkles, Share2, Download, Car } from 'lucide-react'
 import { Step1CollectTopics, Step2GenerateCopy, Step3GenerateLight, Step4GeneratePoster } from '../components/HotWorkshopSteps'
 import ShareModal from '../components/ShareModal'
 import LoadingAnimation from '../components/LoadingAnimation'
+import Navigation from '../components/Navigation'
 import { getAssetPath } from '../constants/paths'
 const videoNews = getAssetPath('/videos/ISCnews.mp4')
 
@@ -105,6 +105,9 @@ const HotWorkshop = () => {
 
   return (
     <div className="min-h-screen">
+      {/* 导航条 */}
+      <Navigation />
+
       {/* Video Section */}
       <section className="relative">
         <motion.div
@@ -114,16 +117,7 @@ const HotWorkshop = () => {
           className="w-full"
         >
           <div className="relative bg-gray-800/50 overflow-hidden aspect-video flex items-center justify-center backdrop-blur-sm">
-            {/* 返回按钮 - 左上角 */}
-            <Link
-              to="/"
-              className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-gray-200 text-sm hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>返回</span>
-            </Link>
-
-            {/* 视频占位符 */}
+            {/* 背景视频 */}
             <video
               src={videoNews}
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -148,7 +142,7 @@ const HotWorkshop = () => {
           className="container mx-auto text-center relative z-10"
         >
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text" style={{ lineHeight: '1.2' }}>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text" style={{ lineHeight: '1.2' }}>
               ISC NEWS 热点工坊
             </h1>
             <img
@@ -158,7 +152,7 @@ const HotWorkshop = () => {
             />
           </div>
           
-          <p className="text-base md:text-lg lg:text-xl text-white/60 mb-4 md:mb-8" style={{ lineHeight: '1.4' }}>
+          <p className="text-sm md:text-base lg:text-lg text-white/60 mb-4 md:mb-8" style={{ lineHeight: '1.4' }}>
             挖掘每日热点，提供更多时髦新鲜感
           </p>
         </motion.div>
@@ -215,7 +209,7 @@ const HotWorkshop = () => {
 
 
         {/* Footer */}
-        <footer className="mt-8 text-center text-gray-500 text-sm">
+        <footer className="mt-8 text-center text-gray-500 text-xs">
           <p className="mb-2">智己LS9幻彩智慧灯语 内容创作平台</p>
           <p>软件创意产品策划 CXH</p>
         </footer>

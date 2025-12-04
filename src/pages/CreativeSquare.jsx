@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowLeft, TrendingUp, Share2, Download } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { TrendingUp, Share2, Download } from 'lucide-react'
+import Navigation from '../components/Navigation'
 import { getAssetPath } from '../constants/paths'
 const videoLists = getAssetPath('/videos/ISClists.mp4')
 import ShareModal from '../components/ShareModal'
@@ -26,6 +26,9 @@ const CreativeSquare = () => {
 
   return (
     <div className="min-h-screen bg-gradient-dark">
+      {/* 导航条 */}
+      <Navigation />
+
       {/* Video Section */}
       <section className="relative">
         <motion.div
@@ -35,14 +38,6 @@ const CreativeSquare = () => {
           className="w-full"
         >
           <div className="relative bg-gray-800/50 overflow-hidden aspect-video flex items-center justify-center backdrop-blur-sm">
-            <Link
-              to="/"
-              className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-gray-200 text-sm hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>返回</span>
-            </Link>
-
             <video
               src={videoLists}
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -67,7 +62,7 @@ const CreativeSquare = () => {
           className="container mx-auto text-center relative z-10"
         >
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text" style={{ lineHeight: '1.2' }}>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text" style={{ lineHeight: '1.2' }}>
               ISC LISTS 共创广场
             </h1>
             <img
@@ -77,7 +72,7 @@ const CreativeSquare = () => {
             />
           </div>
           
-          <p className="text-base md:text-lg lg:text-xl text-white/60 mb-4 md:mb-8" style={{ lineHeight: '1.4' }}>
+          <p className="text-sm md:text-base lg:text-lg text-white/60 mb-4 md:mb-8" style={{ lineHeight: '1.4' }}>
             汇聚车友创意，共创出街弹幕
           </p>
         </motion.div>
@@ -97,8 +92,8 @@ const CreativeSquare = () => {
         >
           <div className="p-4 sm:p-6 md:p-8" style={{ padding: '20px 30px 30px 30px' }}>
           <div className="text-center mb-4 md:mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4" style={{ lineHeight: '1.2' }}>共创广场 TOP15</h2>
-            <p className="text-white/60 text-sm md:text-base lg:text-xl leading-relaxed">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 md:mb-4" style={{ lineHeight: '1.2' }}>共创广场 TOP15</h2>
+            <p className="text-white/60 text-xs md:text-sm lg:text-base leading-relaxed">
               包含官方灯语、热点工坊、个性灯牌、吃谷一族的热门素材<br/>
               可直接选择喜欢的灯语分享到车，欢迎分享
             </p>
@@ -114,11 +109,11 @@ const CreativeSquare = () => {
               >
                 {/* Top meta row */}
                 <div className="flex flex-col md:flex-row items-start md:items-center text-white/80 mb-4 md:mb-6 gap-2 md:gap-0">
-                  <span className="text-base md:text-xl lg:text-2xl mr-0 md:mr-3" style={{ lineHeight: '1.2' }}>制作人：XX</span>
-                  <span className="inline-flex items-center px-2 md:px-3 py-1 rounded text-xs md:text-sm lg:text-base mr-0 md:mr-3" style={{ background: 'linear-gradient(90deg, #F66964 0%, rgba(234, 128, 90, 0) 100%)', color: 'rgba(255, 221, 221, 0.8)' }}>
+                  <span className="text-sm md:text-base lg:text-lg mr-0 md:mr-3" style={{ lineHeight: '1.2' }}>制作人：XX</span>
+                  <span className="inline-flex items-center px-2 md:px-3 py-1 rounded text-[10px] md:text-xs lg:text-sm mr-0 md:mr-3" style={{ background: 'linear-gradient(90deg, #F66964 0%, rgba(234, 128, 90, 0) 100%)', color: 'rgba(255, 221, 221, 0.8)' }}>
                     来源：热点工坊
                   </span>
-                  <div className="flex-1 text-center pixel-font text-xl md:text-2xl lg:text-[28px]" style={{ 
+                  <div className="flex-1 text-center pixel-font text-lg md:text-xl lg:text-2xl" style={{ 
                     background: 'linear-gradient(90deg, #FF3131 0%, #FFC869 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -128,15 +123,15 @@ const CreativeSquare = () => {
                   }}>
                     TOP.N{item.rank.toString().padStart(2, '0')}
                   </div>
-                  <div className="flex items-center gap-2 text-sm md:text-base lg:text-xl text-white/50">
+                  <div className="flex items-center gap-2 text-xs md:text-sm lg:text-base text-white/50">
                     <span>下载量：{item.heat.toLocaleString()}+</span>
                   </div>
                 </div>
 
                 {/* Preview bar */}
                 <div 
-                  className="w-full bg-white rounded-xl md:rounded-2xl px-3 md:px-4 py-3 md:py-4 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-gray-50 transition-colors" 
-                  style={{ maxWidth: '960px', margin: '0 auto', height: '80px' }}
+                  className="w-full bg-white rounded-xl md:rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-gray-50 transition-colors aspect-[16/9]" 
+                  style={{ maxWidth: '960px', margin: '0 auto' }}
                   onClick={(e) => {
                     e.stopPropagation()
                     setPreviewImage(null)
@@ -158,7 +153,7 @@ const CreativeSquare = () => {
                       <path d="M21 16l-4.5-4.5L12 16l-2-2-4 4" />
                     </svg>
                   </div>
-                  <p className="text-gray-600 text-base md:text-xl lg:text-2xl font-bold" style={{ lineHeight: '1.2' }}>16:9 尺寸，灯语图</p>
+                  <p className="text-gray-600 text-sm md:text-lg lg:text-xl font-bold" style={{ lineHeight: '1.2' }}>16:9 尺寸，灯语图</p>
                 </div>
               </div>
 
@@ -176,13 +171,13 @@ const CreativeSquare = () => {
                     value={carNumber}
                     onChange={(e) => setCarNumber(e.target.value)}
                     placeholder="填写LS9车架号"
-                    className="w-full bg-white text-gray-900 px-3 md:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl focus:outline-none focus:ring-0 mb-4 md:mb-6 placeholder:text-gray-400 text-center font-bold text-base md:text-xl lg:text-2xl"
+                    className="w-full bg-white text-gray-900 px-3 md:px-4 py-2 md:py-3 rounded-xl md:rounded-2xl focus:outline-none focus:ring-0 mb-4 md:mb-6 placeholder:text-gray-400 text-center font-bold text-sm md:text-base lg:text-lg"
                     style={{ maxWidth: '960px', margin: '0 auto 24px', height: '60px', lineHeight: '1.2', color: '#AFAEAE' }}
                   />
 
                   {/* 场景选择 */}
                   <div className="rounded-xl md:rounded-2xl mb-4 md:mb-6 p-4 md:p-6 lg:p-8" style={{ background: '#3C2520', maxWidth: '960px', margin: '0 auto 24px' }}>
-                    <p className="text-center text-base md:text-xl lg:text-2xl text-white mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>请选择应用场景（可多选）</p>
+                    <p className="text-center text-sm md:text-base lg:text-lg text-white mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>请选择应用场景（可多选）</p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                       {['迎宾', '欢送', '行车', '驻车'].map((scene) => {
                         const isActive = selectedScenes.includes(scene)
@@ -198,7 +193,7 @@ const CreativeSquare = () => {
                                   : [...prev, scene]
                               )
                             }}
-                            className={`rounded-lg text-base md:text-xl lg:text-2xl font-light transition-all flex items-center justify-center ${
+                            className={`rounded-lg text-sm md:text-base lg:text-lg font-light transition-all flex items-center justify-center ${
                               isActive
                                 ? 'border-2 border-[#F36063]'
                                 : ''
@@ -225,7 +220,7 @@ const CreativeSquare = () => {
                         e.stopPropagation()
                         setIsShareModalOpen(true)
                       }}
-                      className="w-full text-white font-bold rounded-xl md:rounded-2xl hover:brightness-110 transition-colors text-base md:text-xl lg:text-2xl"
+                      className="w-full text-white font-bold rounded-xl md:rounded-2xl hover:brightness-110 transition-colors text-sm md:text-base lg:text-lg"
                       style={{ background: '#B54648', height: '60px', lineHeight: '1.2' }}
                     >
                       分享海报
@@ -240,7 +235,7 @@ const CreativeSquare = () => {
                         }
                         alert('应用到车：功能待接入')
                       }}
-                      className="w-full text-white font-bold rounded-xl md:rounded-2xl hover:brightness-110 transition-colors text-base md:text-xl lg:text-2xl"
+                      className="w-full text-white font-bold rounded-xl md:rounded-2xl hover:brightness-110 transition-colors text-sm md:text-base lg:text-lg"
                       style={{ background: 'linear-gradient(90deg, #F66964 0%, #EA805A 100%)', height: '60px', lineHeight: '1.2' }}
                     >
                       应用到车
@@ -252,7 +247,7 @@ const CreativeSquare = () => {
             ))}
           </div>
 
-          <footer className="mt-6 md:mt-8 text-center text-gray-500 text-xs md:text-sm">
+          <footer className="mt-6 md:mt-8 text-center text-gray-500 text-[10px] md:text-xs">
             <p className="mb-2">智己LS9幻彩智慧灯语 共创提案广场</p>
             <p>软件创意产品策划 CXH</p>
           </footer>

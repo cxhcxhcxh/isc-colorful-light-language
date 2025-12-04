@@ -313,14 +313,6 @@ const LoadingAnimation = ({
               <div className={`w-2 h-2 rounded-full transition-all duration-300 ${currentAnimation === 4 ? 'bg-blue-500 w-4' : 'bg-white/30'}`} />
             </div>
 
-            {/* 动画名称提示 */}
-            <div className="absolute top-4 left-4 text-xs text-white/50">
-              {currentAnimation === 0 && '💫 Mirage'}
-              {currentAnimation === 1 && '⚛️ Quantum'}
-              {currentAnimation === 2 && '🌀 Helix'}
-              {currentAnimation === 3 && '⚛️ Quantum'}
-              {currentAnimation === 4 && '⬛ Grid'}
-            </div>
           </motion.div>
         </motion.div>
       )}

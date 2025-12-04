@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Type, Sparkles, Share2, Download, Car } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Type, Sparkles, Share2, Download, Car } from 'lucide-react'
+import Navigation from '../components/Navigation'
 import { getAssetPath } from '../constants/paths'
 const videoWords = getAssetPath('/videos/ISCwords.mp4')
 import { Step1InputText, Step2GenerateLight, Step3GeneratePoster } from '../components/PersonalSignSteps'
@@ -67,9 +67,13 @@ const PersonalSignWorkshop = () => {
       alert('请先输入文案')
       return
     }
-    // 直接应用：跳过AI文案步骤，直接设置文案并显示灯语图步骤
-    setSelectedCopy({ id: 0, text: inputText })
-    setShowAiCopyOptions(false)
+    // 直接应用：显示加载动画后跳转到灯语图步骤
+    setIsGeneratingLight(true)
+    setTimeout(() => {
+      setIsGeneratingLight(false)
+      setSelectedCopy({ id: 0, text: inputText })
+      setShowAiCopyOptions(false)
+    }, 2500)
   }
 
   const handleSelectAiCopy = (copy) => {
@@ -120,6 +124,9 @@ const PersonalSignWorkshop = () => {
 
   return (
     <div className="min-h-screen">
+      {/* 导航条 */}
+      <Navigation />
+
       <section className="relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -128,14 +135,6 @@ const PersonalSignWorkshop = () => {
           className="w-full"
         >
           <div className="relative bg-gray-800/50 overflow-hidden aspect-video flex items-center justify-center backdrop-blur-sm">
-            <Link
-              to="/"
-              className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-gray-200 text-sm hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>返回</span>
-            </Link>
-
             <video
               src={videoWords}
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -158,7 +157,7 @@ const PersonalSignWorkshop = () => {
           className="container mx-auto text-center relative z-10"
         >
           <div className="relative inline-block">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 gradient-text drop-shadow-lg" style={{ lineHeight: '1.2' }}>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 gradient-text drop-shadow-lg" style={{ lineHeight: '1.2' }}>
               ISC WORDS 个性灯牌
             </h1>
             <div className="hidden md:block absolute -top-4 -right-10 w-6 h-6 md:w-8 md:h-8 pointer-events-none select-none">
@@ -170,7 +169,7 @@ const PersonalSignWorkshop = () => {
             </div>
           </div>
 
-          <p className="text-sm md:text-base lg:text-lg text-gray-300 mb-2 md:mb-3" style={{ lineHeight: '1.4' }}>
+          <p className="text-xs md:text-sm lg:text-base text-gray-300 mb-2 md:mb-3" style={{ lineHeight: '1.4' }}>
             智己为自己代言，随行的专属广告位
           </p>
 
@@ -217,12 +216,12 @@ const PersonalSignWorkshop = () => {
                      }}>
                   2
                 </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成有梗文案</h3>
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white text-center" style={{ lineHeight: '1.2' }}>AI 生成有梅文案</h3>
               </div>
 
               {/* 描述文字 - 居中 */}
               <div className="text-center mb-4 md:mb-6">
-                <p className="text-white/60 text-sm md:text-base lg:text-xl leading-relaxed">
+                <p className="text-white/60 text-xs md:text-sm lg:text-base leading-relaxed">
                   为选中的热点内容，生成 5 种中英文选项<br />
                   只使用简单内容和笔画字符，长度不超过 8 个中文字符
                 </p>
@@ -230,12 +229,12 @@ const PersonalSignWorkshop = () => {
 
               {/* 选中热点文案条 */}
               <div className="mx-auto rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center flex items-center justify-center" style={{ maxWidth: '1020px', height: '60px', background: 'rgba(43, 16, 10, 0.8)' }}>
-                <span className="text-white text-xl md:text-2xl lg:text-3xl font-bold truncate px-4" style={{ lineHeight: '1.2' }}>{inputText}</span>
+                <span className="text-white text-lg md:text-xl lg:text-2xl font-bold truncate px-4" style={{ lineHeight: '1.2' }}>{inputText}</span>
               </div>
 
               {/* 文案列表容器 */}
               <div className="rounded-xl md:rounded-2xl mx-auto space-y-2 md:space-y-3 mb-4 md:mb-6 p-4 md:p-6 lg:p-8" style={{ maxWidth: '1020px', background: 'rgba(43, 16, 10, 0.8)' }}>
-                <h5 className="text-white text-center text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>文案 5 种</h5>
+                <h5 className="text-white text-center text-lg md:text-xl lg:text-2xl font-bold mb-4 md:mb-6" style={{ lineHeight: '1.2' }}>文案 5 种</h5>
 
                 <div className="space-y-2 md:space-y-3 mx-auto" style={{ maxWidth: '960px' }}>
                   {mockCopyOptions.map((copy) => (
@@ -250,7 +249,7 @@ const PersonalSignWorkshop = () => {
                       style={{ height: '60px' }}
                     >
                       {/* 文案文本：居中 */}
-                      <span className="text-[#fff1e7]/80 text-base md:text-xl lg:text-2xl text-center pointer-events-none select-none px-2" style={{ lineHeight: '1.2' }}>
+                      <span className="text-[#fff1e7]/80 text-sm md:text-lg lg:text-xl text-center pointer-events-none select-none px-2" style={{ lineHeight: '1.2' }}>
                         {copy.text}
                       </span>
 
@@ -293,7 +292,7 @@ const PersonalSignWorkshop = () => {
           )}
         </div>
 
-        <footer className="mt-8 text-center text-gray-500 text-sm">
+        <footer className="mt-8 text-center text-gray-500 text-xs">
           <p className="mb-2">智己LS9幻彩智慧灯语 内容创作平台</p>
           <p>软件创意产品策划 CXH</p>
         </footer>

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Navigation from '../components/Navigation'
 import { getAssetPath } from '../constants/paths'
 const videoPics = getAssetPath('/videos/ISCpics.mp4')
 import { Step1ImportImage } from '../components/WordsClanSteps'
@@ -25,6 +24,10 @@ const WordsClan = () => {
   const [previewImage, setPreviewImage] = useState(null)
   const [previewTitle, setPreviewTitle] = useState('')
   
+  // 图片变换状态
+  const [imageScale, setImageScale] = useState(1)
+  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
+  
   // 加载动画状态
   const [isProcessingImage, setIsProcessingImage] = useState(false)
   const [isCropping, setIsCropping] = useState(false)
@@ -42,6 +45,31 @@ const WordsClan = () => {
       setIsProcessingImage(false)
       setStep(2)
     }, 2000)
+  }
+
+  // 图片操作函数
+  const handleMoveUp = () => {
+    setImagePosition(prev => ({ ...prev, y: prev.y - 10 }))
+  }
+
+  const handleMoveDown = () => {
+    setImagePosition(prev => ({ ...prev, y: prev.y + 10 }))
+  }
+
+  const handleMoveLeft = () => {
+    setImagePosition(prev => ({ ...prev, x: prev.x - 10 }))
+  }
+
+  const handleMoveRight = () => {
+    setImagePosition(prev => ({ ...prev, x: prev.x + 10 }))
+  }
+
+  const handleZoomIn = () => {
+    setImageScale(prev => Math.min(prev + 0.9, 3))
+  }
+
+  const handleZoomOut = () => {
+    setImageScale(prev => Math.max(prev - 0.9, 0.5))
   }
 
   const handleConfirmSend = () => {
@@ -71,6 +99,9 @@ const WordsClan = () => {
 
   return (
     <div className="min-h-screen">
+      {/* 导航条 */}
+      <Navigation />
+
       {/* Video Section */}
       <section className="relative">
         <motion.div
@@ -80,15 +111,6 @@ const WordsClan = () => {
           className="w-full"
         >
           <div className="relative bg-gray-800/50 overflow-hidden aspect-video flex items-center justify-center backdrop-blur-sm">
-            {/* 返回按钮 */}
-            <Link
-              to="/"
-              className="absolute top-4 left-4 z-10 inline-flex items-center gap-1 text-gray-200 text-sm hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>返回</span>
-            </Link>
-
             {/* 背景视频 */}
             <video
               src={videoPics}
@@ -114,7 +136,7 @@ const WordsClan = () => {
           className="container mx-auto text-center relative z-10"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <h1 className="text-4xl font-bold gradient-text" style={{ lineHeight: '50px' }}>
+            <h1 className="text-3xl font-bold gradient-text" style={{ lineHeight: '42px' }}>
               ISC PICS 吃谷一族
             </h1>
             <img
@@ -124,7 +146,7 @@ const WordsClan = () => {
             />
           </div>
           
-          <p className="text-xl text-white/60 mb-8" style={{ lineHeight: '28px' }}>
+          <p className="text-lg text-white/60 mb-8" style={{ lineHeight: '24px' }}>
             让所有看到的谷子的人，都能心情愉悦
           </p>
         </motion.div>
@@ -154,56 +176,90 @@ const WordsClan = () => {
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-white mb-2">移动与裁剪</h3>
-            <p className="text-gray-200 text-sm mb-1">16:9 画幅裁剪</p>
-            <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+            <h3 className="text-lg font-bold text-white mb-2">移动与裁剪</h3>
+            <p className="text-gray-200 text-xs mb-1">16:9 画幅裁剪</p>
+            <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed">
               支持拖动 / 缩放，默认为图片居中且宽度撑满
             </p>
           </div>
 
-          <div className="mb-4">
-            <div className="w-full bg白 rounded-2xl px-4 py-4 flex flex-col items-center justify-center text-center aspect-[16/9] overflow-hidden">
-              <div className="w-8 h-8 mb-2 rounded-md bg-gray-200 flex items-center justify-center text-gray-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="w-4 h-4"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
-                  <circle cx="9" cy="10" r="1.5" />
-                  <path d="M21 16l-4.5-4.5L12 16l-2-2-4 4" />
-                </svg>
+          <div className="mb-4 overflow-hidden rounded-2xl bg-white aspect-[16/9]">
+            {imageInput ? (
+              <img 
+                src={imageInput} 
+                alt="上传的图片"
+                className="w-full h-full object-contain"
+                style={{
+                  transform: `scale(${imageScale}) translate(${imagePosition.x}px, ${imagePosition.y}px)`,
+                  transition: 'transform 0.2s ease-out'
+                }}
+              />
+            ) : (
+              <div className="w-full bg-white rounded-2xl px-4 py-4 flex flex-col items-center justify-center text-center aspect-[16/9] overflow-hidden">
+                <div className="w-8 h-8 mb-2 rounded-md bg-gray-200 flex items-center justify-center text-gray-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    className="w-4 h-4"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
+                    <circle cx="9" cy="10" r="1.5" />
+                    <path d="M21 16l-4.5-4.5L12 16l-2-2-4 4" />
+                  </svg>
+                </div>
+                <p className="text-gray-500 text-xs md:text-sm">
+                  16:9 画幅，裁剪预览框（支持框内拖动 / 缩放）
+                </p>
               </div>
-              <p className="text-gray-500 text-xs md:text-sm">
-                16:9 画幅，裁剪预览框（支持框内拖动 / 缩放）
-              </p>
-            </div>
+            )}
           </div>
 
           <div className="flex items-center justify-between gap-2 mb-5">
-            {[
-              { src: getAssetPath('/assets/上.png'), alt: '上移' },
-              { src: getAssetPath('/assets/下.png'), alt: '下移' },
-              { src: getAssetPath('/assets/左.png'), alt: '左移' },
-              { src: getAssetPath('/assets/右.png'), alt: '右移' },
-              { src: getAssetPath('/assets/放大.png'), alt: '放大' },
-              { src: getAssetPath('/assets/缩小.png'), alt: '缩小' },
-            ].map((item, index) => (
-              <button
-                key={index}
-                type="button"
-                className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-5 h-5 object-contain"
-                />
-              </button>
-            ))}
+            <button
+              type="button"
+              onClick={handleMoveUp}
+              className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
+            >
+              <img src={getAssetPath('/assets/上.png')} alt="上移" className="w-5 h-5 object-contain" />
+            </button>
+            <button
+              type="button"
+              onClick={handleMoveDown}
+              className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
+            >
+              <img src={getAssetPath('/assets/下.png')} alt="下移" className="w-5 h-5 object-contain" />
+            </button>
+            <button
+              type="button"
+              onClick={handleMoveLeft}
+              className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
+            >
+              <img src={getAssetPath('/assets/左.png')} alt="左移" className="w-5 h-5 object-contain" />
+            </button>
+            <button
+              type="button"
+              onClick={handleMoveRight}
+              className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
+            >
+              <img src={getAssetPath('/assets/右.png')} alt="右移" className="w-5 h-5 object-contain" />
+            </button>
+            <button
+              type="button"
+              onClick={handleZoomIn}
+              className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
+            >
+              <img src={getAssetPath('/assets/放大.png')} alt="放大" className="w-5 h-5 object-contain" />
+            </button>
+            <button
+              type="button"
+              onClick={handleZoomOut}
+              className="flex-1 bg-[#cc4f4f] hover:brightness-110 rounded-2xl py-2 flex items-center justify-center transition-colors"
+            >
+              <img src={getAssetPath('/assets/缩小.png')} alt="缩小" className="w-5 h-5 object-contain" />
+            </button>
           </div>
 
           <button
@@ -236,11 +292,11 @@ const WordsClan = () => {
           </div>
 
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-bold text-white mb-2">AI 处理灯语图</h3>
-            <p className="text-gray-300 text-xs md:text-sm mb-1">
+            <h3 className="text-xl font-bold text-white mb-2">AI 处理灯语图</h3>
+            <p className="text-gray-300 text-[10px] md:text-xs mb-1">
               调整核心参数，微调灯语图的细节表现
             </p>
-            <p className="text-gray-500 text-xs">
+            <p className="text-gray-500 text-[10px]">
               数值仅作预览调节，不影响原始素材
             </p>
           </div>
@@ -274,7 +330,7 @@ const WordsClan = () => {
             </div>
           </div>
 
-          <div className="space-y-4 mb-5 text-xs md:text-sm text-gray-200">
+          <div className="space-y-4 mb-5 text-[10px] md:text-xs text-gray-200">
             <div>
               <div className="flex justify-between mb-1">
                 <span>R 值</span>
@@ -415,11 +471,11 @@ const WordsClan = () => {
             </div>
 
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">AI 生成灯语分享图</h3>
-              <p className="text-gray-300 text-xs md:text-sm mb-1">
+              <h3 className="text-xl font-bold text-white mb-2">AI 生成灯语分享图</h3>
+              <p className="text-gray-300 text-[10px] md:text-xs mb-1">
                 为选中的灯语图，生成 2 种海报选项
               </p>
-              <p className="text-gray-500 text-xs md:text-sm">
+              <p className="text-gray-500 text-[10px] md:text-xs">
                 16:9 画幅，将灯语铺在后备箱 ISC 位置，加上图标和内容
               </p>
             </div>
@@ -528,7 +584,7 @@ const WordsClan = () => {
           </>
         )}
 
-        <footer className="mt-8 text-center text-gray-500 text-sm">
+        <footer className="mt-8 text-center text-gray-500 text-xs">
           <p className="mb-2">智己LS9幻彩智慧灯语 内容创作平台</p>
           <p>软件创意产品策划 CXH</p>
         </footer>

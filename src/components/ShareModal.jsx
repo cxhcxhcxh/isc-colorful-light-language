@@ -30,10 +30,10 @@ const ShareModal = ({ isOpen, onClose }) => {
           />
           
           {/* 棕色图片占位符叠加层 */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ marginTop: '-50px' }}>
+          <div className="absolute inset-0 flex items-center justify-center" style={{ marginTop: '-60px' }}>
             <div 
               className="rounded-3xl bg-[#3d2520] flex items-center justify-center"
-              style={{ width: '300px', height: '420px', maxWidth: '100%', maxHeight: '100%' }}
+              style={{ width: '300px', height: '430px', maxWidth: '100%', maxHeight: '100%' }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const ShareModal = ({ isOpen, onClose }) => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="w-24 h-24 text-gray-500"
+                className="w-16 h-16 text-gray-500"
               >
                 <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
                 <circle cx="9" cy="10" r="1.5" />
@@ -57,11 +57,9 @@ const ShareModal = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={() => alert('分享到微信：功能待接入')}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-2 border-none outline-none bg-transparent"
           >
-            <div className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
-              <img src={getAssetPath('/assets/微信@2x.png')} alt="WeChat" className="w-6 h-6" />
-            </div>
+            <img src={getAssetPath('/assets/微信@2x.png')} alt="WeChat" className="w-14 h-14" />
             <span className="text-white/70 text-xs">微信</span>
           </button>
 
@@ -69,15 +67,13 @@ const ShareModal = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={() => alert('分享到小红书：功能待接入')}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-2 border-none outline-none bg-transparent"
           >
-            <div className="w-14 h-14 rounded-full bg-red-500 flex items-center justify-center shadow-lg overflow-hidden">
-              <img
-                src={getAssetPath('/assets/Group 68.png')}
-                alt="小红书"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <img
+              src={getAssetPath('/assets/Group 68.png')}
+              alt="小红书"
+              className="w-14 h-14 rounded-full"
+            />
             <span className="text-white/70 text-xs">小红书</span>
           </button>
 
@@ -85,15 +81,13 @@ const ShareModal = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={() => alert('复制链接：功能待接入')}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-2 border-none outline-none bg-transparent"
           >
-            <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center shadow-lg overflow-hidden">
-              <img
-                src={getAssetPath('/assets/复制链接.png')}
-                alt="复制链接"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <img
+              src={getAssetPath('/assets/复制链接.png')}
+              alt="复制链接"
+              className="w-14 h-14 rounded-full"
+            />
             <span className="text-white/70 text-xs">复制链接</span>
           </button>
         </div>

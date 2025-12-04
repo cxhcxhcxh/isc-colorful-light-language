@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Sparkles, TrendingUp, Image, List, FileText } from 'lucide-react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { getAssetPath } from '../constants/paths'
+import Navigation from '../components/Navigation'
 const videoMain = getAssetPath('/videos/ISCmain.mp4')
 
 const HomePage = () => {
@@ -40,7 +41,7 @@ const HomePage = () => {
       mobileIcon: '/assets/mobile/吃谷一族图标@2x.png?v=3',
       title: '吃谷一族',
       subtitle: 'ISC PICS',
-      description: '让所有宣到舍不得人\n都能心情愉悦',
+      description: '让所有看到谷子的人\n都能心情愉悦',
       link: '/words-clan',
     },
     {
@@ -82,58 +83,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* 导航条 */}
-      <nav className="absolute top-0 left-0 right-0 z-20 h-14 lg:h-20" style={{ background: 'transparent' }}>
-        <div className="container mx-auto px-4 flex items-center justify-between h-full" style={{ maxWidth: '1440px' }}>
-          {/* Logo */}
-          <div className="flex items-center">
-            <img 
-              src={getAssetPath('/assets/image15.png')} 
-              alt="Logo" 
-              className="h-5 lg:h-7"
-              style={{ width: 'auto' }}
-            />
-          </div>
-
-          {/* 导航链接 */}
-          <div className="flex items-center gap-2 sm:gap-4 lg:gap-8 xl:gap-16 overflow-x-auto">
-            <Link 
-              to="/hot-workshop" 
-              className="text-white/60 hover:text-white transition-colors font-bold text-xs sm:text-sm lg:text-lg xl:text-xl whitespace-nowrap"
-              style={{ lineHeight: '28px' }}
-            >
-              热点工坊
-            </Link>
-            <Link 
-              to="/personal-sign" 
-              className="text-white/60 hover:text-white transition-colors font-bold text-xs sm:text-sm lg:text-lg xl:text-xl whitespace-nowrap"
-              style={{ lineHeight: '28px' }}
-            >
-              个性灯牌
-            </Link>
-            <Link 
-              to="/words-clan" 
-              className="text-white/60 hover:text-white transition-colors font-bold text-xs sm:text-sm lg:text-lg xl:text-xl whitespace-nowrap"
-              style={{ lineHeight: '28px' }}
-            >
-              吃谷一族
-            </Link>
-            <Link 
-              to="/creative-square" 
-              className="text-white/60 hover:text-white transition-colors font-bold text-xs sm:text-sm lg:text-lg xl:text-xl whitespace-nowrap"
-              style={{ lineHeight: '28px' }}
-            >
-              共创广场
-            </Link>
-            <Link 
-              to="/feedback" 
-              className="text-white/60 hover:text-white transition-colors font-bold text-xs sm:text-sm lg:text-lg xl:text-xl whitespace-nowrap"
-              style={{ lineHeight: '28px' }}
-            >
-              意见反馈
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Video Section */}
       <section className="relative z-10">
@@ -170,14 +120,14 @@ const HomePage = () => {
           {isMobile ? (
             <>
               <div className="flex items-center justify-center gap-2 mb-4">
-                <h1 className="text-xl font-bold gradient-text" style={{ lineHeight: '28px' }}>
+                <h1 className="text-lg font-bold gradient-text" style={{ lineHeight: '20px' }}>
                   幻彩智慧灯语 · 内容创作平台
                 </h1>
                 <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-4 h-4" />
               </div>
               <div className="flex items-center justify-center gap-2 mb-6">
                 <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[8px] border-l-[#FF6B3D]"></div>
-                <span className="text-base font-bold" style={{ color: '#FDDBCE', lineHeight: '22px' }}>三大目标</span>
+                <span className="text-sm font-bold" style={{ color: '#FDDBCE', lineHeight: '18px' }}>三大目标</span>
                 <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[8px] border-r-[#FF6B3D]"></div>
               </div>
 
@@ -198,10 +148,10 @@ const HomePage = () => {
                     }}
                   >
                     <div className="flex-1 mr-4">
-                      <h3 className="text-white text-sm font-semibold mb-1">
+                      <h3 className="text-white text-xs font-semibold mb-1">
                         {feature.text}
                       </h3>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-[10px] text-gray-400">
                         {feature.subtitle}
                       </p>
                     </div>
@@ -217,7 +167,7 @@ const HomePage = () => {
           ) : (
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-8">
-                <h1 className="text-4xl font-bold gradient-text" style={{ lineHeight: '50px' }}>
+                <h1 className="text-3xl font-bold gradient-text" style={{ lineHeight: '42px' }}>
                   幻彩智慧灯语 · 内容创作平台
                 </h1>
                 <img src={getAssetPath('/assets/幻彩星星.png')} alt="star" className="w-8 h-8 animate-pulse" />
@@ -225,7 +175,7 @@ const HomePage = () => {
               
               <div className="flex items-center justify-center gap-3 mb-12">
                 <div className="w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-l-[16px] border-l-[#FF6B3D]"></div>
-                <p className="text-2xl font-semibold gradient-text">三大目标</p>
+                <p className="text-xl font-semibold gradient-text">三大目标</p>
                 <div className="w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent border-r-[16px] border-r-[#FF6B3D]"></div>
               </div>
 
@@ -254,10 +204,10 @@ const HomePage = () => {
                     >
                       {/* 文字内容在底部 */}
                       <div className="relative z-10">
-                        <h3 className="text-white text-xl font-bold mb-2">
+                        <h3 className="text-white text-lg font-bold mb-2">
                           {feature.text}
                         </h3>
-                        <p className="text-gray-300 text-base">
+                        <p className="text-gray-300 text-sm">
                           {feature.subtitle}
                         </p>
                       </div>
@@ -279,7 +229,7 @@ const HomePage = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="text-base text-brand-orange mb-4 text-center"
+                className="text-sm text-brand-orange mb-4 text-center"
               >
                 幻彩智慧灯语的多元创作通道
               </motion.h2>
@@ -310,13 +260,13 @@ const HomePage = () => {
                         onMouseLeave={() => setActiveFeatureIndex(null)}
                       >
                         <div className="flex-1 mr-3 flex flex-col justify-center">
-                          <p className="text-base font-normal mb-1 pixel-text text-white" style={{ lineHeight: '17px' }}>
+                          <p className="text-sm font-normal mb-1 pixel-text text-white" style={{ lineHeight: '15px' }}>
                             {feature.subtitle}
                           </p>
-                          <p className="text-lg font-bold mb-1 text-white" style={{ lineHeight: '25px' }}>
+                          <p className="text-base font-bold mb-1 text-white" style={{ lineHeight: '22px' }}>
                             {feature.title}
                           </p>
-                          <p className="text-xs text-white/50 whitespace-pre-line" style={{ lineHeight: '17px' }}>
+                          <p className="text-[10px] text-white/50 whitespace-pre-line" style={{ lineHeight: '15px' }}>
                             {feature.description}
                           </p>
                         </div>
@@ -368,14 +318,14 @@ const HomePage = () => {
                     }}>
                     {/* 左侧文字 */}
                     <div className="flex-1">
-                      <h3 className="text-4xl font-normal mb-2 pixel-font text-white drop-shadow-lg" style={{ lineHeight: '37px' }}>
+                      <h3 className="text-3xl font-normal mb-2 pixel-font text-white drop-shadow-lg" style={{ lineHeight: '32px' }}>
                         {features[0].subtitle}
                       </h3>
-                      <p className="text-3xl font-bold mb-4 flex items-center gap-2 text-white drop-shadow-md" style={{ lineHeight: '45px' }}>
+                      <p className="text-2xl font-bold mb-4 flex items-center gap-2 text-white drop-shadow-md" style={{ lineHeight: '38px' }}>
                         <img src={getAssetPath('/assets/像素小星星@2x.png')} alt="star" className="w-5 h-5" />
                         {features[0].title}
                       </p>
-                      <p className="text-white/80 text-xl leading-7 drop-shadow-md max-w-lg whitespace-pre-line">
+                      <p className="text-white/80 text-lg leading-6 drop-shadow-md max-w-lg whitespace-pre-line">
                         {features[0].description}
                       </p>
                     </div>
@@ -408,10 +358,10 @@ const HomePage = () => {
                         }}>
                         {/* 顶部文字 */}
                         <div className="mb-3 text-center">
-                          <h3 className="text-4xl font-normal mb-1 pixel-font text-white drop-shadow-lg" style={{ lineHeight: '37px' }}>
+                          <h3 className="text-3xl font-normal mb-1 pixel-font text-white drop-shadow-lg" style={{ lineHeight: '32px' }}>
                             {feature.subtitle}
                           </h3>
-                          <p className="text-2xl font-bold flex items-center justify-center gap-2 text-white drop-shadow-md" style={{ lineHeight: '34px' }}>
+                          <p className="text-xl font-bold flex items-center justify-center gap-2 text-white drop-shadow-md" style={{ lineHeight: '29px' }}>
                             <img src={getAssetPath('/assets/像素小星星@2x.png')} alt="star" className="w-5 h-5" />
                             {feature.title}
                           </p>
@@ -420,7 +370,7 @@ const HomePage = () => {
                         <div className="flex-1"></div>
                         {/* 底部描述 */}
                         <div className="text-center">
-                          <p className="text-white/80 text-base leading-[22px] drop-shadow-md whitespace-pre-line">
+                          <p className="text-white/80 text-sm leading-[18px] drop-shadow-md whitespace-pre-line">
                             {feature.description}
                           </p>
                         </div>
@@ -439,11 +389,11 @@ const HomePage = () => {
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
             <img src={getAssetPath('/assets/幻彩星星.png')} alt="logo" className="w-6 h-6" />
-            <p className="text-gray-400 text-sm font-medium">
+            <p className="text-gray-400 text-xs font-medium">
               智己 LS9 幻彩智慧灯语 内容创作平台
             </p>
           </div>
-          <p className="text-gray-500 text-xs">
+          <p className="text-gray-500 text-[10px]">
             © 幻彩智慧灯语 版权所有 CXH
           </p>
         </div>
