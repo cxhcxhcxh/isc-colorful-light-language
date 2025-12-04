@@ -490,7 +490,7 @@ const WordsClan = () => {
                     <div
                       key={id}
                       onClick={() => setSelectedPoster(id)}
-                      className={`flex-1 relative rounded-xl cursor-pointer transition-all flex flex-col min-h-[500px] ${
+                      className={`flex-1 relative rounded-xl cursor-pointer transition-all flex flex-col ${
                         isSelectedPoster
                           ? 'border border-[#ffb979]'
                           : 'border border-[#3d1a11] hover:border-[#4b2519]'
@@ -498,7 +498,8 @@ const WordsClan = () => {
                     >
                       {/* 3:4 占位海报 */}
                       <div 
-                        className="flex-1 bg-[#2a0f0a] rounded-t-xl flex items-center justify-center cursor-pointer hover:bg-[#3a1810] transition-colors"
+                        className="bg-[#2a0f0a] rounded-t-xl flex items-center justify-center cursor-pointer hover:bg-[#3a1810] transition-colors"
+                        style={{ height: '200px' }}
                         onClick={(e) => {
                           e.stopPropagation()
                           setPreviewImage(null)
